@@ -6,7 +6,7 @@ cat <<EOF > shell
 voms-proxy-init -voms cms --valid 192:00 --out \$HOME/x509up_u\$UID
 
 if [[ "\$1" == "" ]]; then
-  export COFFEA_IMAGE="coffeateam/coffea-dask-almalinux8:2024.6.0-py3.11"
+  export COFFEA_IMAGE="coffeateam/coffea-dask-almalinux8:2024.4.1-py3.11"
   # export COFFEA_IMAGE=/cvmfs/unpacked.cern.ch/registry.hub.docker.com/coffeateam/coffea-dask:latest
 else
   export COFFEA_IMAGE=/cvmfs/unpacked.cern.ch/registry.hub.docker.com/\$1
