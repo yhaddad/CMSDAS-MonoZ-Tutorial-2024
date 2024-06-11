@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 cat <<EOF > shell
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 voms-proxy-init -voms cms --valid 192:00 --out \$HOME/x509up_u\$UID
 
@@ -12,20 +12,11 @@ else
   export COFFEA_IMAGE=/cvmfs/unpacked.cern.ch/registry.hub.docker.com/\$1
 fi
 
-export FULL_IMAGE="/cvmfs/unpacked.cern.ch/registry.hub.docker.com/"\$COFFEA_IMAGE
+export APPTAINER_BINDPATH=/cvmfs,/cvmfs/grid.cern.ch/etc/grid-security:/etc/grid-security
 
-# Needed to setup cluster
-export CONDOR_CONFIG=/srv/.condor_config
-
-grep -v '^include' /etc/condor/config.d/01_cmslpc_interactive > .condor_config
-
-export ZDOTDIR=/srv
-
-SINGULARITY_SHELL=\$(which zsh) singularity exec -B \${PWD}:/srv -B /cvmfs -B /uscmst1b_scratch --pwd /srv \\
-  \${FULL_IMAGE} $(which zsh)
-# Working version... but not self-consistent with zsh?
-# SINGULARITY_SHELL=\$(which zsh) singularity exec -B \${PWD}:/srv -B /cvmfs -B /uscmst1b_scratch --pwd /srv \\
-#   \${COFFEA_IMAGE} /bin/zsh #source \${ZDOTDIR}/.zshrc
+APPTAINER_SHELL=\$(which bash) apptainer exec -B \${PWD}:/srv --pwd /srv \\
+  /cvmfs/unpacked.cern.ch/registry.hub.docker.com/\${COFFEA_IMAGE} \\
+  /bin/bash --rcfile /srv/.bashrc
 EOF
 
 cat <<EOF > .bashrc
