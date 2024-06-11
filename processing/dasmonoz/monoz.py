@@ -241,6 +241,7 @@ class MonoZ(BaseProducer):
                 weight *= event.w_muon_SFDown
         else:
             weight *= event.w_muon_SF
+            
         # Electron SF
         if "ElecronSF" in self.syst_var:
             if "Up" in self.syst_var:
@@ -249,6 +250,7 @@ class MonoZ(BaseProducer):
                 weight *= event.w_electron_SFDown
         else:
             weight *= event.w_electron_SF
+            
         # Prefire Weight
         try:
             if "PrefireWeight" in self.syst_var:
@@ -260,6 +262,7 @@ class MonoZ(BaseProducer):
                 weight *= event.PrefireWeight
         except:
             pass
+            
         # nvtx Weight
         if "nvtxWeight" in self.syst_var:
             if "Up" in self.syst_var:
@@ -268,6 +271,7 @@ class MonoZ(BaseProducer):
                 weight *= event.nvtxWeightDown
         else:
             weight *= event.nvtxWeight
+            
         # TriggerSFWeight
         if "TriggerSFWeight" in self.syst_var:
             if "Up" in self.syst_var:
@@ -276,6 +280,7 @@ class MonoZ(BaseProducer):
                 weight *= event.TriggerSFWeightDown
         else:
             weight *= event.TriggerSFWeight
+            
         # BTagEventWeight
         if "btagEventWeight" in self.syst_var:
             if "Up" in self.syst_var:
