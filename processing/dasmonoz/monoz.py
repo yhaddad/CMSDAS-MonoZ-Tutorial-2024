@@ -1,10 +1,9 @@
-
 from coffea.processor import ProcessorABC
 from uproot import recreate
 import hist
 
 
-class WSProducer(ProcessorABC):
+class BaseProducer(ProcessorABC):
     """
     A coffea Processor which produces a workspace.
     This applies selections and produces histograms from kinematics.
@@ -22,10 +21,12 @@ class WSProducer(ProcessorABC):
         self.syst_var, self.syst_suffix = (syst_var, f'_sys_{syst_var}') if do_syst and syst_var else ('', '')
         self.weight_syst = weight_syst
         self._accumulator = {
-            name: Hist('Events', Bin(name=name, **axis))
-            for name, axis in ((self.naming_schema(hist['name'], region), hist['axis'])
-                               for _, hist in list(self.histograms.items())
-                               for region in hist['region'])
+            name: hist.Hist(
+                hist.axis.Variable(axis["bins"],  name=axis["label"]),
+                hist.storage.Weight()
+            ) for name, axis in (
+                (self.naming_schema(hist['name'], region), hist['axis']) for _, hist in list(self.histograms.items()) for region in hist['region']
+            )
         }
         self.outfile = haddFileName
 
@@ -67,50 +68,11 @@ class WSProducer(ProcessorABC):
         return NotImplemented
 
 
-class MonoZ(WSProducer):
-    histograms = {
-        'h_bal': {
-            'target': 'sca_balance',
-            'name': 'balance',  # name to write to histogram
-            'region': [
-                'signal'
-            ],
-            'axis': {
-                'label': 'sca_balance',  # fancy descriptive name
-                'n_or_arr': 50,
-                'lo': 0,
-                'hi': 1
-            }
-        },
-        'h_phi': {
-            'target': 'delta_phi_ZMet',
-            'name': 'phizmet',
-            'region': [
-                'signal'
-            ],
-            'axis': {
-                'label': 'delta_phi_ZMet',
-                'n_or_arr': 50,
-                'lo': 0,
-                'hi': 1
-            }
-        },
-        'h_njet': {
-            'target': 'ngood_jets',
-            'name': 'njet',
-            'region': [
-                'signal'
-            ],
-            'axis': {
-                'label': 'ngood_jets',
-                'n_or_arr': 6,
-                'lo': 0,
-                'hi': 6
-            }
-        },
+class MonoZ(BaseProducer):
+    self.histograms = {
         'h1_measMET': {
             'target': 'met_pt',
-            'name': 'measMET',
+            'name'  : 'measMET',
             'region': [
                 'catSignal-0jet',
                 'catEM',
@@ -118,12 +80,12 @@ class MonoZ(WSProducer):
             ],
             'axis': {
                 'label': 'met_pt',
-                'n_or_arr': [50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600, 1000]
+                'bins' : [50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600, 1000]
             }
         },
         'h2_measMET': {
             'target': 'met_pt',
-            'name': 'measMET',
+            'name'  : 'measMET',
             'region': [
                 'catNRB',
                 'catTOP',
@@ -131,37 +93,19 @@ class MonoZ(WSProducer):
             ],
             'axis': {
                 'label': 'met_pt',
-                'n_or_arr': [50, 60, 70, 80, 90, 100]
+                'bins': [50, 60, 70, 80, 90, 100]
             }
         },
-        'h_emulMET': {
+        'h_emulMET' : {
             'target': 'emulatedMET',
-            'name': 'measMET',
+            'name'  : 'measMET',
             'region': [
                 'cat3L',
                 'cat4L',
             ],
-            'axis': {
+            'axis'  : {
                 'label': 'met_pt',
-                'n_or_arr': [50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600, 1000]
-            }
-        },
-        'h_mT': {
-            'target': 'MT',
-            'name': 'measMT',
-            'region': [
-                'catSignal-0jet',
-                'catEM',
-                'catSignal-1jet',
-                'cat3L',
-                'cat4L',
-                'catNRB',
-                'catTOP',
-                'catDY'
-            ],
-            'axis': {
-                'label': 'MET',
-                'n_or_arr': [0, 100, 200, 250, 300, 350, 400, 500, 600, 700, 800, 1000, 1200, 2000]
+                'bins': [50, 100, 125, 150, 175, 200, 250, 300, 350, 400, 500, 600, 1000]
             }
         }
     }
@@ -202,14 +146,6 @@ class MonoZ(WSProducer):
             "event.ngood_jets{sys}  <=  1",
             "event.ngood_bjets{sys} ==  0",
             "event.met_pt{sys}      >  30"
-        ],
-        "catTOP": [
-            "event.Z_pt{sys}        >  60",
-            "abs(event.Z_mass{sys} - 91.1876) < 15",
-            "event.ngood_jets{sys}  >   2",
-            "event.ngood_bjets{sys} >=  1",
-            "event.met_pt{sys}      >  30",
-            "event.lep_category{sys} == 2"
         ],
         "catSignal-0jet": [
             "(event.lep_category{sys} == 1) | (event.lep_category{sys} == 3)",
