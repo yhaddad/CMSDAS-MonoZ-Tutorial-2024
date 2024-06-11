@@ -10,7 +10,7 @@ ssh -L localhost:8NNN:localhost:8NNN lxplus.cern.ch
 ```
 git clone git@github.com:yhaddad/CMSDAS-MonoZ-Tutorial-2024.git
 cd CMSDAS-MonoZ-Tutorial-2024
-sh bootstrap_prototype.sh
+sh bootstrap.sh
 ```
 
 ## Starting the environment
