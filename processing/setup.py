@@ -1,30 +1,25 @@
 from setuptools import setup
 
 requirements = [
-    'numpy','coffea','tensorflow'
+    'hist','coffea','tensorflow'
 ]
 
 setup(
-    name='ristretto',
+    name='dasmonoz',
     version='0.0.1',
-    description="strong coffea is an ristretto",
+    description="DAS EXO long exercise",
     author="Yacine Haddad",
     author_email='yhaddad@cern.ch',
     packages=[
         'ristretto',
     ],
-    package_dir={'ristretto':
-                 'ristretto'},
-    entry_points={
-        'console_scripts': [
-            'binopt=binopt.cli:main'
-        ]
-    },
+    package_dir={'dasmonoz':
+                 'dasmonoz'},
     include_package_data=True,
     install_requires=requirements,
     license="GNU General Public License v3",
     zip_safe=False,
-    keywords='binopt',
+    keywords='dasmonoz',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',

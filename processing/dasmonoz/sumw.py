@@ -1,14 +1,15 @@
 from coffea import processor
 import awkward as ak
 
-class coffea_sumw(processor.ProcessorABC):
+class EventSumw(processor.ProcessorABC):
     def __init__(self):
         super().__init__()
 
-    def process(self, event: processor.LazyDataFrame): 
+    def process(self, event): 
         dataset_name = event.metadata['dataset']
         is_mc = event.metadata.get("is_mc")
         
+        print("sumw:dataset_name(isMC) = ", dataset_name, is_mc)
         if is_mc is None:
             is_mc = 'data' not in dataset_name.lower()
         
@@ -18,7 +19,7 @@ class coffea_sumw(processor.ProcessorABC):
         else:
             sumw = -1.0
         
-        return {dataset_name: sumw}
+        return sumw
     
     def postprocess(self, accumulator):
         return accumulator

@@ -1,3 +1,5 @@
+from ast import List
+import sys
 from coffea.processor import ProcessorABC
 from coffea.analysis_tools import Weights
 
@@ -18,52 +20,71 @@ class BaseProducer(ProcessorABC):
     histograms = NotImplemented
     selection = NotImplemented
 
-    def __init__(
-            self, isMC, era=2017, sample="DY", do_syst=False, 
-            syst_var='', weight_syst=False, flag=False):
-        self._flag = flag
+    def __init__(self, do_syst=True, weight_syst_list: list = [], shift_syst_list: list = []):
         self.do_syst = do_syst
-        self.era = era
-        self.isMC = isMC
-        self.sample = sample
-        self.syst_var, self.syst_suffix = (syst_var, f'_sys_{syst_var}') if do_syst and syst_var else ('', '')
-        self.weight_syst = weight_syst
+        self.weight_syst_list = weight_syst_list
+        self.vshift_syst_list = shift_syst_list
+        
         self._accumulator = {
             name: hda.hist.Hist(
-                hist.axis.Variable(axis["bins"], name=axis["label"]),
+                hist.axis.StrCategory([], name="channel"   , growth=True),
+                hist.axis.StrCategory([], name="systematic", growth=True), 
+                hist.axis.Variable(h["axis"]["bins"], name=h["axis"]["label"]),
                 hist.storage.Weight()
-            ) for name, axis in (
-                (self.naming_schema(hist['name'], region), hist['axis']) for _, hist in list(self.histograms.items()) for region in hist['region']
-            )
+            ) for name, h in list(self.histograms.items())
         }
 
-    def process(self, event: dask_awkward.Array):
+    def process(self, event: dask_awkward.lib.core.Array):
+        dataset_name = event.metadata['dataset']
+        is_mc = event.metadata.get("is_mc")
+
         output = self._accumulator
         weights = self.weighting(event)
+        
+        # let fill the nominal histograms
+        for name, histo in list(self.histograms.items()):
+            for region in histo['region']:
+                selec = self.evaluate_selection(event, histo['target'], region)
+                output[name].fill(**{
+                    "channel": region, 
+                    "systematic": 'nominal', 
+                    histo["axis"]["label"]: event[histo['target']][selec],
+                    "weight": weights.weight()[selec]
+                })
+                if not is_mc: continue
 
-        if self.syst_var in weights.variations:
-            weight = weights.weight(modifier=self.syst_var)
-        else:
-            weight = weights.weight()
+                # Let do the weight based systematics
+                for syst in list(weights.variations):
+                    selec = self.evaluate_selection(event, histo['target'], region, '', '')
+                    output[name].fill(**{
+                        "channel": region, 
+                        "systematic": syst, 
+                        histo["axis"]["label"]: event[histo['target']][selec],
+                        "weight": weights.weight(modifier=syst)[selec]
+                    })
 
-
-        for h, hist in list(self.histograms.items()):
-            for region in hist['region']:
-                name = self.naming_schema(hist['name'], region)
-                selec = self.passbut(event, hist['target'], region)
-                output[name].fill(
-                    **{
-                        hist['axis']['label']: event[hist['target']][selec],
-                        'weight': weight[selec],
-                    }
-                )
-
+                # let do the systematics
+                for syst in self.vshift_syst_list:
+                    for direction in ['Up', 'Down']:
+                        selec = self.evaluate_selection(event, histo['target'], region, syst, direction)
+                        output[name].fill(**{
+                            "channel": region, 
+                            "systematic": syst + direction, 
+                            histo["axis"]["label"]: event[histo['target']][selec],
+                            "weight": weights.weight()[selec]
+                        })
         return output
 
-    def passbut(self, event, excut: str, cat: str):
-        """Backwards-compatible passbut."""
-        return eval('&'.join('(' + cut.format(sys=('' if self.weight_syst else self.syst_suffix)) + ')'
-                             for cut in self.selection[cat] if excut not in cut))
+        
+
+
+    def evaluate_selection(self, event:dask_awkward.lib.core.Array, excut: str, cat: str, syst_shift: str='', direction: str=''):
+        if syst_shift:
+            syst_shift = '' if syst_shift in self.weight_syst_list else syst_shift
+            syst_shift = f'_sys_{syst_shift}{direction}' if syst_shift != '' else ''
+        
+        expression = '&'.join(f"({cut.format(sys=syst_shift)})"  for cut in self.selection[cat] if excut not in cut)
+        return eval(expression)
 
     def weighting(self, event):
         return NotImplemented
@@ -155,21 +176,49 @@ class MonoZ(BaseProducer):
         "catSignal-0jet": [
             "(event.lep_category{sys} == 1) | (event.lep_category{sys} == 3)",
             "event.ngood_jets{sys} == 0",
-            "self.passbut(event, excut, 'signal')",
+            "event.Z_pt{sys}        >  60",
+            "abs(event.Z_mass{sys} - 91.1876) < 15",
+            "event.ngood_bjets{sys} ==  0",
+            "event.nhad_taus{sys}   ==  0",
+            "event.met_pt{sys}      >  50",
+            "abs(event.delta_phi_ZMet{sys} ) > 2.6",
+            "abs(1 - event.sca_balance{sys}) < 0.4",
+            "abs(event.delta_phi_j_met{sys}) > 0.5",
+            "event.delta_R_ll{sys}           < 1.8"
         ],
         "catSignal-1jet": [
             "(event.lep_category{sys} == 1) | (event.lep_category{sys} == 3)",
             "event.ngood_jets{sys} == 1",
-            "self.passbut(event, excut, 'signal')",
+            "event.Z_pt{sys}        >  60",
+            "abs(event.Z_mass{sys} - 91.1876) < 15",
+            "event.ngood_bjets{sys} ==  0",
+            "event.nhad_taus{sys}   ==  0",
+            "event.met_pt{sys}      >  50",
+            "abs(event.delta_phi_ZMet{sys} ) > 2.6",
+            "abs(1 - event.sca_balance{sys}) < 0.4",
+            "abs(event.delta_phi_j_met{sys}) > 0.5",
+            "event.delta_R_ll{sys}           < 1.8"
         ],
         "catDY": [
             "(event.lep_category{sys} == 1) | (event.lep_category{sys} == 3)",
             "(event.ngood_jets{sys} == 0) | (event.ngood_jets{sys} == 1)",
-            "self.passbut(event, excut, 'signal')",
+            "event.Z_pt{sys}        >  60",
+            "abs(event.Z_mass{sys} - 91.1876) < 15",
+            "event.ngood_bjets{sys} ==  0",
+            "event.nhad_taus{sys}   ==  0",
+            "event.met_pt{sys}      >  50",
+            "abs(event.delta_phi_ZMet{sys} ) > 2.6",
+            "abs(1 - event.sca_balance{sys}) < 0.4",
+            "abs(event.delta_phi_j_met{sys}) > 0.5",
+            "event.delta_R_ll{sys}           < 1.8"
         ],
         "catEM": [
             "event.lep_category{sys} == 2",
-            "self.passbut(event, excut, 'catNRB')",
+            "event.Z_pt{sys}        >  60",
+            "abs(event.Z_mass{sys} - 91.1876) < 15",
+            "event.ngood_jets{sys}  <=  1",
+            "event.ngood_bjets{sys} ==  0",
+            "event.met_pt{sys}      >  30"
         ],
     }
 
@@ -188,7 +237,7 @@ class MonoZ(BaseProducer):
         weights.add("QCDScale1", ak.ones_like(event.QCDScale0wUp), event.QCDScale1wUp, event.QCDScale1wDown)
         weights.add("QCDScale2", ak.ones_like(event.QCDScale0wUp), event.QCDScale2wUp, event.QCDScale2wDown)
 
-        # complete the full list here: 
+        # Insert here the complete list of weight-based systematics: 
         # missing are --> MuonSF, ElectronSF, PrefireWeight, nvtxWeight, TriggerSFWeight, btagEventWeight
 
         return weights
