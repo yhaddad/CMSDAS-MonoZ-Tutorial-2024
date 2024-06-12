@@ -1,7 +1,13 @@
 from coffea.processor import ProcessorABC
-from uproot import recreate
-import hist
+from coffea.analysis_tools import Weights
 
+import dask_awkward
+import awkward as ak
+import dask_awkward.lib
+import dask_awkward.lib.core
+
+import hist
+import hist.dask as hda
 
 class BaseProducer(ProcessorABC):
     """
@@ -12,7 +18,9 @@ class BaseProducer(ProcessorABC):
     histograms = NotImplemented
     selection = NotImplemented
 
-    def __init__(self, isMC, era=2017, sample="DY", do_syst=False, syst_var='', weight_syst=False, haddFileName=None, flag=False):
+    def __init__(
+            self, isMC, era=2017, sample="DY", do_syst=False, 
+            syst_var='', weight_syst=False, flag=False):
         self._flag = flag
         self.do_syst = do_syst
         self.era = era
@@ -21,55 +29,53 @@ class BaseProducer(ProcessorABC):
         self.syst_var, self.syst_suffix = (syst_var, f'_sys_{syst_var}') if do_syst and syst_var else ('', '')
         self.weight_syst = weight_syst
         self._accumulator = {
-            name: hist.Hist(
-                hist.axis.Variable(axis["bins"],  name=axis["label"]),
+            name: hda.hist.Hist(
+                hist.axis.Variable(axis["bins"], name=axis["label"]),
                 hist.storage.Weight()
             ) for name, axis in (
                 (self.naming_schema(hist['name'], region), hist['axis']) for _, hist in list(self.histograms.items()) for region in hist['region']
             )
         }
-        self.outfile = haddFileName
 
-    @property
-    def accumulator(self):
-        return self._accumulator
+    def process(self, event: dask_awkward.Array):
+        output = self._accumulator
+        weights = self.weighting(event)
 
-    def process(self, df):
-        output = self.accumulator
-        weight = self.weighting(df)
+        if self.syst_var in weights.variations:
+            weight = weights.weight(modifier=self.syst_var)
+        else:
+            weight = weights.weight()
+
 
         for h, hist in list(self.histograms.items()):
             for region in hist['region']:
                 name = self.naming_schema(hist['name'], region)
-                selec = self.passbut(df, hist['target'], region)
-                output[name].fill(**{
-                    'weight': weight[selec],
-                    name: df[hist['target']][selec].flatten()
-                })
+                selec = self.passbut(event, hist['target'], region)
+                output[name].fill(
+                    **{
+                        hist['axis']['label']: event[hist['target']][selec],
+                        'weight': weight[selec],
+                    }
+                )
+
         return output
 
-    def postprocess(self, accumulator):
-        f = recreate(self.outfile)
-        for h, hist in accumulator.items():
-            f[h] = export1d(hist)
-            print(f'wrote {h} to {self.outfile}')
-        f.close()
-        return accumulator
-
-    def passbut(self, event: LazyDataFrame, excut: str, cat: str):
+    def passbut(self, event, excut: str, cat: str):
         """Backwards-compatible passbut."""
         return eval('&'.join('(' + cut.format(sys=('' if self.weight_syst else self.syst_suffix)) + ')'
                              for cut in self.selection[cat] if excut not in cut))
 
-    def weighting(self, event: LazyDataFrame):
+    def weighting(self, event):
         return NotImplemented
 
     def naming_schema(self, *args):
         return NotImplemented
-
+    
+    def postprocess(self, accumulator):
+        pass
 
 class MonoZ(BaseProducer):
-    self.histograms = {
+    histograms = {
         'h1_measMET': {
             'target': 'met_pt',
             'name'  : 'measMET',
@@ -88,7 +94,6 @@ class MonoZ(BaseProducer):
             'name'  : 'measMET',
             'region': [
                 'catNRB',
-                'catTOP',
                 'catDY'
             ],
             'axis': {
@@ -168,128 +173,26 @@ class MonoZ(BaseProducer):
         ],
     }
 
-    def weighting(self, event: LazyDataFrame):
-        # cross-section
-        weight = event.xsecscale
+    def weighting(self, event: dask_awkward.Array):
 
-        if "puWeight" in self.syst_var:
-            if "Up" in self.syst_var:
-                weight *= event.puWeightUp
-            else:
-                weight *= event.puWeightDown
-        else:
-            weight *= event.puWeight
+        weights = Weights(None, storeIndividual=True)
+        weights.add("xsection", event.xsecscale)
+        weights.add("puweight", event.puWeight, event.puWeightUp, event.puWeightDown)
+        # EWK correction is estimated only for VV processes
+        if 'kEW' in event.fields:
+            weights.add("vvewkcor", event.kEW, event.kEWUp, event.kEWDown)
+            weights.add("nnlocorr", event.kNNLO)
 
-        # Electroweak
-        try:
-            if "EWK" in self.syst_var:
-                if "Up" in self.syst_var:
-                    weight *= event.kEWUp
-                else:
-                    weight *= event.kEWDown
-            else:
-                weight *= event.kEW
-        except:
-            pass
+        weights.add("pdf", ak.ones_like(event.pdfw_Up), event.pdfw_Up, event.pdfw_Down)
+        weights.add("QCDScale0", ak.ones_like(event.QCDScale0wUp), event.QCDScale0wUp, event.QCDScale0wDown)
+        weights.add("QCDScale1", ak.ones_like(event.QCDScale0wUp), event.QCDScale1wUp, event.QCDScale1wDown)
+        weights.add("QCDScale2", ak.ones_like(event.QCDScale0wUp), event.QCDScale2wUp, event.QCDScale2wDown)
 
-        # NNLO crrection
-        try:
-            weight *= event.kNNLO
-        except:
-            pass
-        
-        # PDF uncertainty
-        if "PDF" in self.syst_var:
-            try:
-                if "Up" in self.syst_var:
-                    weight *= event.pdfw_Up
-                else:
-                    weight *= event.pdfw_Down
-            except:
-                pass
-        
-        # QCD Scale weights
-        if "QCDScale0" in self.syst_var:
-            try:
-                if "Up" in self.syst_var:
-                    weight *= event.QCDScale0wUp
-                else:
-                    weight *= event.QCDScale0wDown
-            except:
-                pass
-        if "QCDScale1" in self.syst_var:
-            try:
-                if "Up" in self.syst_var:
-                    weight *= event.QCDScale1wUp
-                else:
-                    weight *= event.QCDScale1wDown
-            except:
-                pass
-        if "QCDScale2" in self.syst_var:
-            try:
-                if "Up" in self.syst_var:
-                    weight *= event.QCDScale2wUp
-                else:
-                    weight *= event.QCDScale2wDown
-            except:
-                pass
+        # complete the full list here: 
+        # missing are --> MuonSF, ElectronSF, PrefireWeight, nvtxWeight, TriggerSFWeight, btagEventWeight
 
-        if "MuonSF" in self.syst_var:
-            if "Up" in self.syst_var:
-                weight *= event.w_muon_SFUp
-            else:
-                weight *= event.w_muon_SFDown
-        else:
-            weight *= event.w_muon_SF
-            
-        # Electron SF
-        if "ElecronSF" in self.syst_var:
-            if "Up" in self.syst_var:
-                weight *= event.w_electron_SFUp
-            else:
-                weight *= event.w_electron_SFDown
-        else:
-            weight *= event.w_electron_SF
-            
-        # Prefire Weight
-        try:
-            if "PrefireWeight" in self.syst_var:
-                if "Up" in self.syst_var:
-                    weight *= event.PrefireWeight_Up
-                else:
-                    weight *= event.PrefireWeight_Down
-            else:
-                weight *= event.PrefireWeight
-        except:
-            pass
-            
-        # nvtx Weight
-        if "nvtxWeight" in self.syst_var:
-            if "Up" in self.syst_var:
-                weight *= event.nvtxWeightUp
-            else:
-                weight *= event.nvtxWeightDown
-        else:
-            weight *= event.nvtxWeight
-            
-        # TriggerSFWeight
-        if "TriggerSFWeight" in self.syst_var:
-            if "Up" in self.syst_var:
-                weight *= event.TriggerSFWeightUp
-            else:
-                weight *= event.TriggerSFWeightDown
-        else:
-            weight *= event.TriggerSFWeight
-            
-        # BTagEventWeight
-        if "btagEventWeight" in self.syst_var:
-            if "Up" in self.syst_var:
-                weight *= event.btagEventWeightUp
-            else:
-                weight *= event.btagEventWeightDown
-        else:
-            weight *= event.btagEventWeight
-        return weight
+        return weights
 
     def naming_schema(self, name, region):
         return f'{name}_{self.sample}_{region}{self.syst_suffix}'
+
