@@ -1,0 +1,631 @@
+boosthist:
+  # - ./data/merged-histogram-fes-2018.pkl.gz
+  #- ./data/merged-histogram-setif-2018.pkl.gz
+  #- ./data/merged-histogram-oran-2018.pkl.gz
+  #- ./data/merged-histogram-timbuktu-2018.pkl.gz
+  #- ./data/merged-histogram-tromso-2018-withDD.pkl.gz
+  - ./data/merged-histogram-cape-2018-withDD.pkl.gz
+    
+xsections:
+  !include ./config/xsections_2018_allDY.yaml
+
+luminosity:
+  # from : https://docs.google.com/presentation/d/1gEF2jExqS1hWs-dlYgxrTT2xQztYbBZcrLdw45Aiy7g/edit#slide=id.gaa4333d304_0_0
+  value: 59.83
+  uncer: 1.025
+
+groups:
+  WW:
+    processes:
+      - WWTo2L2Nu_TuneCP5_13TeV-powheg-pythia8
+    type:
+      background
+    color:
+      "#99B6F7"
+  WZ:
+    processes:
+      - WZTo3LNu_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - WZJJ_EWK_InclusivePolarization_TuneCP5_13TeV_madgraph-madspin-pythia8
+    type:
+      background
+    color:
+      "#46B3A5"
+  DY:
+    processes:
+      - DYJetsToTauTau_M-50_AtLeastOneEorMuDecay_massWgtFix_TuneCP5_13TeV-powhegMiNNLO-pythia8-photos
+      - DYJetsToLL_0J_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_1J_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_2J_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_LHEFilterPtZ-0To50_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_LHEFilterPtZ-50To100_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_LHEFilterPtZ-100To250_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_LHEFilterPtZ-250To400_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_LHEFilterPtZ-400To650_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_LHEFilterPtZ-650ToInf_MatchEWPDG20_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      #- DYJetsToLL_M-50_HT-100to200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      #- DYJetsToLL_M-50_HT-1200to2500_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      #- DYJetsToLL_M-50_HT-200to400_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      #- DYJetsToLL_M-50_HT-2500toInf_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      #- DYJetsToLL_M-50_HT-400to600_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      #- DYJetsToLL_M-50_HT-600to800_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      #- DYJetsToLL_M-50_HT-70to100_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      #- DYJetsToLL_M-50_HT-800to1200_TuneCP5_PSweights_13TeV-madgraphMLM-pythia8
+      - DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8
+      #- DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8
+      - EWKZ2Jets_ZToLL_M-50_TuneCP5_withDipoleRecoil_13TeV-madgraph-pythia8
+    type:
+      background
+    color:
+      "#F6D68D"
+  Top:
+    processes:
+      - ST_tW_antitop_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8
+      - ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8
+      - ST_tW_antitop_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8/.root
+      - ST_tW_top_5f_NoFullyHadronicDecays_TuneCP5_13TeV-powheg-pythia8
+      - ST_s-channel_4f_leptonDecays_TuneCP5_13TeV-amcatnlo-pythia8
+      - tZq_ll_4f_ckm_NLO_TuneCP5_13TeV-amcatnlo-pythia8
+      - TTTo2L2Nu_TuneCP5_13TeV-powheg-pythia8
+      - TTWJetsToLNu_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8
+      - TTWJetsToQQ_TuneCP5_13TeV-amcatnloFXFX-madspin-pythia8
+      - TTZToLLNuNu_M-10_TuneCP5_13TeV-amcatnlo-pythia8
+      - TTZToQQ_TuneCP5_13TeV-amcatnlo-pythia8
+    type:
+      background
+    color:
+      "#2E6D92"
+  VVV:
+    processes:
+      - WWZ_4F_TuneCP5_13TeV-amcatnlo-pythia8
+      - WZZ_TuneCP5_13TeV-amcatnlo-pythia8
+      - ZZZ_TuneCP5_13TeV-amcatnlo-pythia8
+    type:
+      background
+    color:
+      "#580C82"
+  ggVV:
+    processes:
+      - GluGluToContinToZZTo2e2mu_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToContinToZZTo2e2tau_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToContinToZZTo2mu2tau_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToContinToZZTo4e_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToContinToZZTo4mu_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToContinToZZTo4tau_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToContinToZZTo2e2nu_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToContinToZZTo2mu2nu_TuneCP5_13TeV-mcfm701-pythia8
+      - GluGluToWWToENEN_TuneCP5_13TeV_MCFM701_pythia8
+      - GluGluToWWToENMN_TuneCP5_13TeV_MCFM701_pythia8
+      - GluGluToWWToENTN_TuneCP5_13TeV_MCFM701_pythia8
+      - GluGluToWWToMNMN_TuneCP5_13TeV_MCFM701_pythia8
+      - GluGluToWWToMNEN_TuneCP5_13TeV_MCFM701_pythia8
+      - GluGluToWWToMNTN_TuneCP5_13TeV_MCFM701_pythia8
+      - GluGluToWWToTNMN_TuneCP5_13TeV_MCFM701_pythia8
+      - GluGluToWWToTNTN_TuneCP5_13TeV_MCFM701_pythia8
+    type:
+      background
+    color:
+     "#580CCC"
+  ZZ2l2nu:
+    processes:
+      - ZZTo2L2Nu_TuneCP5_13TeV_powheg_pythia8
+    type:
+      signal
+    color:
+      "#8E31A1"
+  #ekw_ZZ2l2nu:
+  #  processes:
+  #    - ZZJJ_ZZTo2L2Nu_EWK_dipoleRecoil_TuneCP5_13TeV-madgraph-pythia8
+  #  type:
+  #    signal
+  #  color:
+  #    "#FE4773"
+  ekw_ZZ2l2nuNLO:
+    processes:
+      - ZZTo2Mu2Nu_TuneCP5_DipoleRecoil_13TeV_powheg_pythia8
+      - ZZTo2E2Nu_TuneCP5_DipoleRecoil_13TeV_powheg_pythia8
+    type:
+      signal
+    color:
+      "#98a100"
+  data:
+    processes:
+      - MuonEG
+      - DoubleMuon
+      - SingleMuon
+      - EGamma
+    type:
+      data
+    color:
+      "#181926"
+
+
+plotting:
+    cat-DY:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [50, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2
+            range: [0, 250]
+            blind: false
+    cat-3L:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+    vbs-DY:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 1 
+            range: [60, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [2, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 1
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 1
+            range: [30, 100]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-DYRD:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 1 
+            range: [60, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [2, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 1
+            range: [0,1]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 1
+            range: [30, 100]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false      
+    vbs-3L:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-EM:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-TT:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-NR:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-SR:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: true
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: true
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: true
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: true
+        njets:
+            rebin: 1
+            range: [2, 5]
+            blind: true
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: true
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: true
+        gnn_score:
+            rebin: 5
+            range: [0, 1]
+            blind: true
+        gnn_flat:
+            rebin: 10
+            range: [0, 1]
+            blind: true
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: true
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: true
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: true
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: true
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: true
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: true
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: true

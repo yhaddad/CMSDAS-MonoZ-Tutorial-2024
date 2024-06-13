@@ -55,6 +55,7 @@ class BaseProducer(ProcessorABC):
 
                 # Let do the weight based systematics
                 for syst in list(weights.variations):
+                   
                     selec = self.evaluate_selection(event, histo['target'], region, '', '')
                     output[name].fill(**{
                         "channel": region, 
@@ -220,6 +221,14 @@ class MonoZ(BaseProducer):
             "event.ngood_bjets{sys} ==  0",
             "event.met_pt{sys}      >  30"
         ],
+        "catTOP": [
+            "event.lep_category{sys} == 2",
+            "event.Z_pt{sys}        >  60" ,
+            "abs(event.Z_mass{sys} - 91.1876) < 15",
+            "event.ngood_jets{sys}  >   2" ,
+            "event.ngood_bjets{sys} >=  1" ,
+            "event.met_pt{sys}      >  80"
+        ]
     }
 
     def weighting(self, event: dask_awkward.Array):
