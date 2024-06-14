@@ -10,11 +10,11 @@ import copy
 import dask
 import gzip, pickle, json
 import pprint
+import warnings
 import yaml
 from matplotlib.pyplot import hist
 from dask.diagnostics import ProgressBar
 from dask.distributed import Client, progress
-dask.config.set({'logging.distributed': 'error'}) # disable warnings about garbage collection when running with multiple cores
 
 from dasmonoz.monoz import MonoZ
 from dasmonoz.sumw import EventSumw
@@ -25,7 +25,7 @@ def main():
     parser.add_argument('-jobs' , '--jobs'  , type=int, default=10    , help="")
     parser.add_argument('-era'    , '--era' , type=str, default="2018", help="")
     parser.add_argument('--datasets', type=str, default='./data/datasets.yaml', help='input dataset yaml')
-    parser.add_argument('--preprocessed', type=bool, default=False, help='load preprocessed datasets saved in json form (skip preprocessing again): may not catch files that have become inaccessible since preprocessing')
+    parser.add_argument('--preprocessed', action='store_true', help='load preprocessed datasets saved in json form (skip preprocessing again): may not catch files that have become inaccessible since preprocessing')
     parser.add_argument('-max_chunks', '--max_chunks', type=int, default=300, help="limit number of chunks per-file to this number at most")
     parser.add_argument('-ncores', '--ncores', type=int, default=1, help="Number of cores to run dask on locally: 1 uses default scheduler, more creates a distributed LocalCluster")
      
@@ -81,6 +81,7 @@ def main():
     #     print(dataset)
 
     if options.ncores > 1:
+        warnings.filterwarnings("ignore")
         client = Client(processes=True, threads_per_worker=1, n_workers=options.ncores, memory_limit='4GB')
         print("Dashboard:", client.dashboard_link)
 
@@ -101,6 +102,19 @@ def main():
         with gzip.open(f"{output_file}_all.json.gz", "rt") as file:
             sumw_updated = json.load(file)
     else:
+        print("Preprocessing Runs Trees")
+        sumw_runnable, sumw_updated = preprocess(
+            sumwdatasets, align_clusters=False, step_size=100_000, files_per_batch=1,
+            skip_bad_files=True, save_form=True,
+        )
+        output_file = "sumw_compute"
+        with gzip.open(f"{output_file}_runnable.json.gz", "wt") as file:
+            print(f"Saved runnable fileset chunks to {output_file}_runnable.json.gz")
+            json.dump(sumw_runnable, file, indent=2)
+        with gzip.open(f"{output_file}_all.json.gz", "wt") as file:
+            print(f"Saved all fileset chunks to {output_file}_all.json.gz")
+            json.dump(sumw_updated, file, indent=2)
+            
         print("Preprocessing Events Trees")
         dataset_runnable, dataset_updated = preprocess(
             datasets, align_clusters=False, step_size=100_000, files_per_batch=1,
@@ -114,20 +128,16 @@ def main():
             print(f"Saved all fileset chunks to {output_file}_all.json.gz")
             json.dump(dataset_updated, file, indent=2)
 
-        print("Preprocessing Runs Trees")
-        sumw_runnable, dataset_updated = preprocess(
-            sumwdatasets, align_clusters=False, step_size=100_000, files_per_batch=1,
-            skip_bad_files=True, save_form=True,
-        )
-        output_file = "sumw_compute"
-        with gzip.open(f"{output_file}_runnable.json.gz", "wt") as file:
-            print(f"Saved runnable fileset chunks to {output_file}_runnable.json.gz")
-            json.dump(dataset_runnable, file, indent=2)
-        with gzip.open(f"{output_file}_all.json.gz", "wt") as file:
-            print(f"Saved all fileset chunks to {output_file}_all.json.gz")
-            json.dump(dataset_updated, file, indent=2)
+    print("Building TaskGraph for Runs Trees")
+    sumw_compute, srep_compute = apply_to_fileset(
+        EventSumw(),
+        max_chunks(sumw_runnable, options.max_chunks),
+        schemaclass=BaseSchema,
+        uproot_options={"allow_read_errors_with_report": (OSError, ValueError)}
+    )
+    print("Processing Sum Weights")
+    (sumw, sreport) = dask.compute(sumw_compute, srep_compute)
             
-    
     print("Building TaskGraph for Events Trees")
     event_compute, rep_compute = apply_to_fileset(
         MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
@@ -135,16 +145,8 @@ def main():
         schemaclass=BaseSchema,
         uproot_options={"allow_read_errors_with_report": (OSError,IndexError)}
     )
-    
-
-    print("Building TaskGraph for Runs Trees")
-    sumw_compute = apply_to_fileset(
-        EventSumw(),
-        max_chunks(sumw_runnable, options.max_chunks),
-        schemaclass=BaseSchema,
-    )
-        
-    print("Processing TaskGraphs")    
+   
+    print("Processing Histogramming TaskGraphs")
     # (histograms, sumw, report) = dask.compute(event_compute, sumw_compute, rep_compute)
     (histograms, report) = dask.compute(event_compute, rep_compute)
     print("Done")
