@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Making Histograms &#8212; Mono Z v1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <link rel="shortcut icon" href="../_static/monoz.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Making Datacards" href="Datacards.html" />
+    <link rel="prev" title="Framework" href="Framework.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Datacards.html" title="Making Datacards"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="Framework.html" title="Framework"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Mono Z v1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Making Histograms</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <style> .red {color:red} </style><section id="making-histograms">
+<h1>Making Histograms<a class="headerlink" href="#making-histograms" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="../_images/histo.png"><img alt="Alternative text" src="../_images/histo.png" style="width: 900px;" /></a>
+<p>An integral part of understanding physics, is finding ways to display data in a way that can be easily understood. One of the fundamental tools in a physicists toolbelt is the histogram which allows us toshow binned data a plethora of different ways. This section will walk you through how to create a histogram using the Mono Z framework.</p>
+<section id="an-introduction-to-making-histograms-from-trees">
+<h2>An Introduction to Making Histograms from Trees<a class="headerlink" href="#an-introduction-to-making-histograms-from-trees" title="Permalink to this headline">¶</a></h2>
+<p>Starting from the NTuples we have introduced, we will make histograms for our Control and Signal regions. We will do these for each file filled with NTuples. This means we will need to run our code over a large number of files. In order to make this easier we will submit the jobs on HT Condor and place the output in another directory. These files will only contain the histograms that we want to look at and will be much easier to work with.</p>
+<p>The file that will make these histograms can be seen here:
+<a class="reference external" href="https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py">Producer</a>.</p>
+<p><strong>In general this code can be split into 3 main categories</strong></p>
+<ol class="arabic simple">
+<li><p>The definition of selections for the different regions and their associated binning: <a class="reference external" href="https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py#L40-L144">bins</a>.</p></li>
+<li><p>The weights that will be applied in order to create the histograms. These include the Up and Down variations for our systematics: <a class="reference external" href="https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py#L212-L338">weights</a>.</p></li>
+<li><p>Filling the histograms that we have defined with the weight that we have defined: <a class="reference external" href="https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py#L342-L388">Fill</a>.</p></li>
+</ol>
+<p>Lets run a sample and see the histograms. You can run this through the proc in the condor subdirectory:</p>
+<p><strong>MC</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python condor_WSProducer.py --jobNum<span class="o">=</span><span class="m">0</span> --isMC<span class="o">=</span><span class="m">1</span> --era<span class="o">=</span><span class="m">2016</span> --infile<span class="o">=</span>/eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph/tree_0.root
+</pre></div>
+</div>
+<p><strong>Data</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python condor_WSProducer.py --jobNum<span class="o">=</span><span class="m">0</span> --isMC<span class="o">=</span><span class="m">0</span> --era<span class="o">=</span><span class="m">2016</span> --infile<span class="o">=</span>/eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/DoubleMuon_Run2016G-Nano1June2019-v1/tree_1.root
+</pre></div>
+</div>
+</section>
+<section id="control-regions-in-the-monoz-analysis">
+<h2>Control Regions in the MonoZ analysis<a class="headerlink" href="#control-regions-in-the-monoz-analysis" title="Permalink to this headline">¶</a></h2>
+<p>We use several control regions to determine the normalizations for the background processes in this analysis. Each control region is designed to isolate a certain process that is seen in the signal region. In addition, the control regions are designed to probe phase spaces with similar kinematic distributions to those seen in the signal region. This is done to ensure that the normalizations are not biassed by effects that are seen in one region and not the other (Such as object efficiencies, triggers, etc.).</p>
+<p>The MonoZ analysis uses 4 control regions explained below:</p>
+<table class="colwidths-given docutils align-default" id="id1">
+<caption><span class="caption-text">Control Region Descriptions</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 36%" />
+<col style="width: 23%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Control Region</strong></p></th>
+<th class="head"><p><strong>Description</strong></p></th>
+<th class="head"><p><strong>Processes to model</strong></p></th>
+<th class="head"><p><strong># of normalization factors</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4 Lepton</p></td>
+<td><p>We look at 4 lepton decay with 2 Z boson candidates. We combine one lepton pair and MET to create “emulated MET”. This emulated MET should model our SR ZZ.</p></td>
+<td><p>ZZ</p></td>
+<td><p>3 (low, medium and high MET)</p></td>
+</tr>
+<tr class="row-odd"><td><p>3 Lepton</p></td>
+<td><p>We look at 3 lepton decay with a Z boson candidate and an additional lepton. We combine information from the lepton and the MET to create “emulated MET”. This emulated MET should model our SR WZ.</p></td>
+<td><p>WZ</p></td>
+<td><p>3 (low, medium and high MET)</p></td>
+</tr>
+<tr class="row-even"><td><p>Electron and Muon</p></td>
+<td><p>We look as Opposite sign opposite flavor (OSOF) lepton pairs. With a tau veto this means we look at events with an electron and a muon that fall within the Z mass window.</p></td>
+<td><p>Top quark processes and WW</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Low MET Sideband</p></td>
+<td><p>For Drell-Yan (DY) there is no real MET (no neutrinos) so we look in the signal region but with low MET less than 100 GeV. This low MET region remains dominated with DY since the other backgrounds have real MET.</p></td>
+<td><p>Drell-Yan (DY)</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<p>For more information on the Control regions and the selections see slides 24-28 <a class="reference external" href="https://indico.cern.ch/event/832209/contributions/3486920/attachments/1871948/3085482/Preapproval_EXO-19-003.pdf">preapproval</a></p>
+</section>
+<section id="weights-and-their-variations">
+<h2>Weights and their Variations<a class="headerlink" href="#weights-and-their-variations" title="Permalink to this headline">¶</a></h2>
+<p>The various Event weights that are applied in the analysis are summarized below with brief descriptions. For each weight, variations Up and Down are taken to calculate the effect the uncertainty in the correction.</p>
+<p>MC and data ntuples have several weights. MC weights are needed first and foremost to normalize the MC sample to the luminosity of the data. Also, event weights are computed to take into account the different scale factors that we use to improve the description of the data.</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text">Data vs MC Weights</span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 55%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><em>name</em></p></th>
+<th class="head"><p><em>description</em></p></th>
+<th class="head"><p><em>available in data</em></p></th>
+<th class="head"><p><em>available in MC</em></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>xsecscale</p></td>
+<td><p>If you weight MC events with this weight you will get MC normalized to 1/fb. In order to normalize to the data luminosity (35.9/fb in 2016) you have to weight MC as XSWeight*35.9. Notice that xsecscale takes into account the effect of negative weight events (sometimes present in NLO MC simulations).</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>puWeight</p></td>
+<td><p>This weight is needed to equalize the Pile-Up profile in MC to that in Data. You need to understand that most of the time the simulation is done before, or at least partly before, the data taking, thus the PU profile in the MC is a guess of what will happen with data. This weight is the ratio of the PU profile in data to that guess that was used when producing the MC.</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>EWK</p></td>
+<td><p>This weight is only applied to Diboson samples of ZZ and WZ. This weight takes into account higher order that are not considered in the original generation. There are LO–&gt;NLO EWK and NLO–&gt;NNLO QCD corrections incorporated in this weight.</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>PDF</p></td>
+<td><p>These are the uncertainties associated with the parton distribution functions (PDF) that are used to generate the samples.</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>QCDScale (0,1,2)</p></td>
+<td><p>Uncertainties calculated by modifying both the normalization and factorization scales. 9 combinations of the two scales at (0.5, 1, 2).</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>MuonSF</p></td>
+<td><p>Weights associated with the scale factors used to correct the muons’ pT</p></td>
+<td><p><strong>YES</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>ElectronSF</p></td>
+<td><p>Weights associated with the scale factors used to correct the electrons’ ET</p></td>
+<td><p><strong>YES</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>PrefireWeight</p></td>
+<td><p>There were some issues with prefiring triggers in the ECAL endcap. These weights correct for the effects caused by this prefiring issue</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>nvtxWeight</p></td>
+<td><p>Discrepancies were seen in the MC/Data distributions for the number of vertices in events. These weights correct for this discrepancy and also have an effect on the MET distribution.</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>TriggerSFWeight</p></td>
+<td><p>These weights correct for inefficiencies in the use of triggers. This weight is always close to one for this analysis due to the use of high-pT lepton triggers</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>bTagEventWeight</p></td>
+<td><p>Weights correspond to the efficiency of the b-tagger efficiency</p></td>
+<td><p><strong>NO</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>ElectronEn</p></td>
+<td><p>These weights modify the scale of the electron energy</p></td>
+<td><p><strong>YES</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>MuonEn</p></td>
+<td><p>These weights modify the scale of the muon pT</p></td>
+<td><p><strong>YES</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>jesTotal</p></td>
+<td><p>These weights modify the Jet energy scale</p></td>
+<td><p><strong>YES</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>jer</p></td>
+<td><p>These weights modify the jet energy resolution</p></td>
+<td><p><strong>YES</strong></p></td>
+<td><p><strong>YES</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p>Scale factors (SF) are corrections applied to MC samples to fix imperfections in the simulation. These corrections are derived in data in control regions, meaning in regions where the signal is not present.</p>
+<p>The origin of the mis-modelling could be from the hard scattering (theory uncertainty), or from the simulation of the response of particles with the detector (Geant4), or due to the conditions evolution in time in data (the MC has only one set of conditions), such as noise and radiation damage effects on the detectors.</p>
+<p><strong>The SF can be:</strong></p>
+<ol class="arabic simple">
+<li><p>object based scale factors</p></li>
+<li><p>event based scale factors</p></li>
+</ol>
+<p><strong>Object based SF are for example:</strong></p>
+<ol class="arabic simple">
+<li><p>lepton identification and isolation efficiency. The identification criteria for leptons could be mis-simulated, then a scale factor is applied</p></li>
+<li><p>jet related scale factors, such as b-tag efficiency mis-modelling</p></li>
+</ol>
+<p><strong>Event based SF are for example:</strong></p>
+<ol class="arabic simple">
+<li><p>normalization of a sample. for example if a new NNLO cross section is available, or if a background normalization is found to be mis-modelled in a control region (a background whose theoretical uncertainty is big)</p></li>
+<li><p>trigger efficiency. The trigger could be mis-modelled. We measure the trigger efficiency “per leg” of the triggers considered (single leptons and double leptons) and combine the efficiency to get the per-event one. We do not require the trigger in the simulation, but apply directly the efficiency to MC events</p></li>
+</ol>
+<p><strong>Theory Nuisances:</strong></p>
+<ol class="arabic simple">
+<li><p>scale choice ((LHEScaleWeight [8]’, ‘LHEScaleWeight[0]))</p></li>
+<li><p>QCD Scale</p></li>
+<li><p>PDF uncertainty</p></li>
+<li><p>higher order corrections (electroweak)</p></li>
+</ol>
+<p>Do a quick test with one of the systematics listed above</p>
+<p>Open 3 root file of signal and do a tree-&gt;Draw with:</p>
+<ol class="arabic simple">
+<li><p>nominal</p></li>
+<li><p>scale up</p></li>
+<li><p>scale down</p></li>
+</ol>
+<p>Learning where these systematics come from can be an important part of an analysis. For systematics related to objects, these are often covered by the Physics object groups (POG). They will often give a prescription with how to correctly calcuate various corrections/uncertainties. See below for some twiki examples:</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/CMS/EgammaPOG">EGamma POG</a>.</p></li>
+<li><p><a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/CMS/MuonPOG">Muon POG</a>.</p></li>
+<li><p><a class="reference external" href="https://twiki.cern.ch/twiki/bin/view/CMS/JetMET">JetMET POG</a>.</p></li>
+</ol>
+</section>
+<section id="creating-histograms-and-ht-condor-submission">
+<h2>Creating Histograms and HT Condor submission<a class="headerlink" href="#creating-histograms-and-ht-condor-submission" title="Permalink to this headline">¶</a></h2>
+<p>In order to create all the histograms we need, we will submit through Condor. Condor will paralleize the jobs and drastically reduce the time required to run the jobs. For Condor we will submit the proc through a separate “run file”. We can also choose the time we want in order to run our producer. Lower times will get higher priority but we need enough time to run the producer fully. Luckily, since this producer is only creating histograms we can run this quickly.</p>
+<p>For submitting we can use the following commands:</p>
+<p><strong>MC</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python run_WSProducer.py --era<span class="o">=</span><span class="m">2016</span> --isMC<span class="o">=</span><span class="m">1</span> --tag<span class="o">=</span>CMSDAS_NTuples --input<span class="o">=</span>2016_list_MC.txt --force --queue<span class="o">=</span>workday
+</pre></div>
+</div>
+<p><strong>Data</strong></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python run_WSProducer.py --era<span class="o">=</span><span class="m">2016</span> --isMC<span class="o">=</span><span class="m">0</span> --tag<span class="o">=</span>CMSDAS_NTuples --input<span class="o">=</span>2016_list_data.txt --force --queue<span class="o">=</span>workday
+</pre></div>
+</div>
+<p>The following table lists the queue types of HTCondor <a class="reference external" href="http://batchdocs.web.cern.ch/batchdocs/local/lsfmigratepractical.html">Condor</a>.</p>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text">HTCondor vs LSF</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><em>HTCondor</em></p></th>
+<th class="head"></th>
+<th class="head"><p><em>LSF</em></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><em>name</em></p></td>
+<td><p><em>max duration</em></p></td>
+<td><p><em>name</em></p></td>
+</tr>
+<tr class="row-odd"><td><p>espresso</p></td>
+<td><p>20min</p></td>
+<td><p>8nm</p></td>
+</tr>
+<tr class="row-even"><td><p>microcentury</p></td>
+<td><p>1h</p></td>
+<td><p>1nh</p></td>
+</tr>
+<tr class="row-odd"><td><p>longlunch</p></td>
+<td><p>2h</p></td>
+<td><p>8nh</p></td>
+</tr>
+<tr class="row-even"><td><p>workday</p></td>
+<td><p>8h</p></td>
+<td><p>1nd</p></td>
+</tr>
+<tr class="row-odd"><td><p>tomorrow</p></td>
+<td><p>1d</p></td>
+<td><p>2nd</p></td>
+</tr>
+<tr class="row-even"><td><p>testmatch</p></td>
+<td><p>3d</p></td>
+<td><p>1nw</p></td>
+</tr>
+<tr class="row-odd"><td><p>nextweek</p></td>
+<td><p>1w</p></td>
+<td><p>2nw</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/monoz.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Making Histograms</a><ul>
+<li><a class="reference internal" href="#an-introduction-to-making-histograms-from-trees">An Introduction to Making Histograms from Trees</a></li>
+<li><a class="reference internal" href="#control-regions-in-the-monoz-analysis">Control Regions in the MonoZ analysis</a></li>
+<li><a class="reference internal" href="#weights-and-their-variations">Weights and their Variations</a></li>
+<li><a class="reference internal" href="#creating-histograms-and-ht-condor-submission">Creating Histograms and HT Condor submission</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="Framework.html"
+                          title="previous chapter">Framework</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="Datacards.html"
+                          title="next chapter">Making Datacards</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/exercise/Histograms.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Datacards.html" title="Making Datacards"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="Framework.html" title="Framework"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Mono Z v1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Making Histograms</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, The Mono Z CMSDAS Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>
