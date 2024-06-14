@@ -8,11 +8,13 @@ from coffea.dataset_tools import (
 import argparse
 import copy
 import dask
-import gzip, pickle
+import gzip, pickle, json
 import pprint
 import yaml
 from matplotlib.pyplot import hist
 from dask.diagnostics import ProgressBar
+from dask.distributed import Client, progress
+dask.config.set({'logging.distributed': 'error'}) # disable warnings about garbage collection when running with multiple cores
 
 from dasmonoz.monoz import MonoZ
 from dasmonoz.sumw import EventSumw
@@ -25,6 +27,7 @@ def main():
     parser.add_argument('--datasets', type=str, default='./data/datasets.yaml', help='input dataset yaml')
     parser.add_argument('--preprocessed', type=bool, default=False, help='load preprocessed datasets saved in json form (skip preprocessing again): may not catch files that have become inaccessible since preprocessing')
     parser.add_argument('-max_chunks', '--max_chunks', type=int, default=300, help="limit number of chunks per-file to this number at most")
+    parser.add_argument('-ncores', '--ncores', type=int, default=1, help="Number of cores to run dask on locally: 1 uses default scheduler, more creates a distributed LocalCluster")
      
     options  = parser.parse_args()
 
@@ -76,6 +79,12 @@ def main():
     #     sumwdatasets = {dataset: originalsumwdataset[dataset]}
         
     #     print(dataset)
+
+    if options.ncores > 1:
+        client = Client(processes=True, threads_per_worker=1, n_workers=options.ncores, memory_limit='4GB')
+        print("Dashboard:", client.dashboard_link)
+
+    
     if options.preprocessed:
         print("Loading preprocessed datasets from gzipped json")
 
@@ -158,6 +167,6 @@ def main():
 
 if __name__ == "__main__":
     # This progress bar should work for local dask clusters; for dask.distributed, try the dask.distributed.progress function instead
-    ProgressBar().register()    
+    ProgressBar().register()
     main()
 
