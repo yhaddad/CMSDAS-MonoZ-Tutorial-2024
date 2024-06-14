@@ -11,7 +11,7 @@ setup(
     author="Yacine Haddad",
     author_email='yhaddad@cern.ch',
     packages=[
-        'ristretto',
+        'dasmonoz',
     ],
     package_dir={'dasmonoz':
                  'dasmonoz'},

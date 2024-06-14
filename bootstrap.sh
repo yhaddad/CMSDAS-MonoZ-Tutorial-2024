@@ -1,31 +1,22 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 cat <<EOF > shell
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
-voms-proxy-init -voms cms --valid 192:00 --out \$HOME/x509up_u\$UID
+# voms-proxy-init -voms cms -vomses /etc/grid-security/vomses/ --valid 192:00 --out \$HOME/x509up_u\$UID
 
 if [[ "\$1" == "" ]]; then
-  export COFFEA_IMAGE="coffeateam/coffea-dask-almalinux8:2024.6.0-py3.11"
+  export COFFEA_IMAGE="coffeateam/coffea-dask-almalinux8:2024.5.0-py3.11"
   # export COFFEA_IMAGE=/cvmfs/unpacked.cern.ch/registry.hub.docker.com/coffeateam/coffea-dask:latest
 else
   export COFFEA_IMAGE=/cvmfs/unpacked.cern.ch/registry.hub.docker.com/\$1
 fi
 
-export FULL_IMAGE="/cvmfs/unpacked.cern.ch/registry.hub.docker.com/"\$COFFEA_IMAGE
+export APPTAINER_BINDPATH=/cvmfs,/cvmfs/grid.cern.ch/etc/grid-security:/etc/grid-security,/eos
 
-# Needed to setup cluster
-export CONDOR_CONFIG=/srv/.condor_config
-
-grep -v '^include' /etc/condor/config.d/01_cmslpc_interactive > .condor_config
-
-export ZDOTDIR=/srv
-
-SINGULARITY_SHELL=\$(which zsh) singularity exec -B \${PWD}:/srv -B /cvmfs -B /uscmst1b_scratch --pwd /srv \\
-  \${FULL_IMAGE} $(which zsh)
-# Working version... but not self-consistent with zsh?
-# SINGULARITY_SHELL=\$(which zsh) singularity exec -B \${PWD}:/srv -B /cvmfs -B /uscmst1b_scratch --pwd /srv \\
-#   \${COFFEA_IMAGE} /bin/zsh #source \${ZDOTDIR}/.zshrc
+APPTAINER_SHELL=\$(which bash) apptainer exec -B \${PWD}:/srv --pwd /srv \\
+  /cvmfs/unpacked.cern.ch/registry.hub.docker.com/\${COFFEA_IMAGE} \\
+  /bin/bash --rcfile /srv/.bashrc
 EOF
 
 cat <<EOF > .bashrc
@@ -37,9 +28,12 @@ install_env() {
   unlink .env/lib64  # HTCondor can't transfer symlink to directory and it appears optional
   # work around issues copying CVMFS xattr when copying to tmpdir
   export TMPDIR=\$(mktemp -d -p .)
-  .env/bin/python -m ipykernel install --user
   rm -rf \$TMPDIR && unset TMPDIR
-  .env/bin/python -m pip install -q git+https://github.com/CoffeaTeam/lpcjobqueue.git@v\${LPCJQ_VERSION}
+  # .env/bin/python -m pip install --upgrade awkward dask_awkward coffea uproot
+  cd processing
+  ../.env/bin/python -m pip install -e .
+  cd ..
+  # .env/bin/python -m pip install -q git+https://github.com/CoffeaTeam/lpcjobqueue.git@v\${LPCJQ_VERSION}
   echo "done."
 }
 
@@ -64,6 +58,7 @@ unset GREP_OPTIONS
 [[ -d .env ]] || install_all
 source .env/bin/activate
 alias pip="python -m pip"
+voms-proxy-init -voms cms -vomses /etc/grid-security/vomses/ --valid 192:00 --out \$HOME/x509up_u\$UID
 pip show lpcjobqueue 2>/dev/null | grep -q "Version: \${LPCJQ_VERSION}" || pip install -q git+https://github.com/CoffeaTeam/lpcjobqueue.git@v\${LPCJQ_VERSION}
 EOF
 
