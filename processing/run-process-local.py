@@ -21,7 +21,7 @@ def main():
     
     options  = parser.parse_args()
 
-    basedir = "file:///Users/yacinehaddad/work/smp/CMSDAS-MonoZ-Tutorial-2024/processing/data/"
+    basedir = "file://data/"
 
     inputfiles: dict = {
         "DM": {
