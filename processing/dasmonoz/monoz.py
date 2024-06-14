@@ -234,6 +234,12 @@ class MonoZ(BaseProducer):
     def weighting(self, event: dask_awkward.Array):
 
         weights = Weights(None, storeIndividual=True)
+        # For data we want a nominal weight of 1, and we do an early return from this function
+        if not event.metadata["is_mc"]:
+            weights.add("data", ak.ones_like(event.event))
+            return weights
+
+        # For MonteCarlo, we add mulitple weights, some with systematic variations (4 args)
         weights.add("xsection", event.xsecscale)
         weights.add("puweight", event.puWeight, event.puWeightUp, event.puWeightDown)
         # EWK correction is estimated only for VV processes
