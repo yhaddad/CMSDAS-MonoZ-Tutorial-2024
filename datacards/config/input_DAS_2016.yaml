@@ -1,0 +1,1177 @@
+boosthist:
+  - ./data/merged-histogram-cape-2018-withDD.pkl.gz
+    
+xsections:
+  !include ./config/xsections_2016.yaml
+
+luminosity:
+  # from : https://docs.google.com/presentation/d/1gEF2jExqS1hWs-dlYgxrTT2xQztYbBZcrLdw45Aiy7g/edit#slide=id.gaa4333d304_0_0
+  value: 35.9
+  uncer: 1.025
+
+groups:
+  WW:
+    processes:
+      - WWTo2L2Nu_13TeV-powheg
+    type:
+      background
+    color:
+      "#99B6F7"
+  WZ:
+    processes:
+      - WZTo3LNu_TuneCUETP8M1_13TeV-powheg-pythia8
+      - WZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8
+    type:
+      background
+    color:
+      "#46B3A5"
+  DY:
+    processes:
+      - DYJetsToLL_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_Pt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToLL_Pt-650ToInf_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8
+      - DYJetsToTauTau_ForcedMuEleDecay_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_ext1
+    type:
+      background
+    color:
+      "#F6D68D"
+  Top:
+    processes:
+      - ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1
+      - ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1
+      - TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8
+      - TTTo2L2Nu_TuneCUETP8M2_ttHtranche3_13TeV-powheg-pythia8
+      - TTWJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8
+      - TTWJetsToQQ_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8
+      - TTZToLLNuNu_M-10_TuneCUETP8M1_13TeV-amcatnlo-pythia8
+      - TTZToQQ_TuneCUETP8M1_13TeV-amcatnlo-pythia8
+    type:
+      background
+    color:
+      "#2E6D92"
+  VVV:
+    processes:
+      - WWW_4F_TuneCUETP8M1_13TeV-amcatnlo-pythia8
+      - WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8
+      - WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8
+      - ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8
+    type:
+      background
+    color:
+      "#580C82"
+  ggVV:
+    processes:
+      - GluGluToContinToZZTo2e2mu_13TeV_MCFM701_pythia8
+      - GluGluToContinToZZTo2e2nu_13TeV_MCFM701_pythia8
+      - GluGluToContinToZZTo2e2tau_13TeV_MCFM701_pythia8
+      - GluGluToContinToZZTo2mu2nu_13TeV_MCFM701_pythia8
+      - GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8
+      - GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8
+      - GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8
+      - GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8
+    type:
+      background
+    color:
+     "#580CCC"
+  ZZ:
+    processes:
+      - ZZTo2L2Nu_13TeV_powheg_pythia8_ext1
+      - ZZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8
+      - ZZTo4L_13TeV_powheg_pythia8_ext1
+    type:
+      background
+    color:
+      "#8E31A1"
+  data:
+    processes:
+      - MuonEG
+      - DoubleMuon
+      - SingleMuon
+      - DoubleEG
+    type:
+      data
+    color:
+      "#181926"
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-140_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-140_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-200_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-200_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Axial_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-0_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-0_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+    processes:
+    - DarkMatter_MonoZToLL_NLO_Vector_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
+    type: signal
+    color: '#98a100'
+
+plotting:
+    cat-DY:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [50, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2
+            range: [0, 250]
+            blind: false
+    cat-3L:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+    vbs-DY:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 1 
+            range: [60, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [2, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 1
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 1
+            range: [30, 100]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-DYRD:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 1 
+            range: [60, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [2, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 1
+            range: [0,1]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 1
+            range: [30, 100]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false      
+    vbs-3L:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-EM:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-TT:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-NR:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: false
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: false
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: false
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: false
+        njets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: false
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: false
+        gnn_score:
+            rebin: 10
+            range: [0, 1]
+            blind: false
+        gnn_flat:
+            rebin: 5
+            range: [0, 1]
+            blind: false
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: false
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: false
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: false
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: false
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: false
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: false
+    vbs-SR:
+        dilep_mt:
+            rebin: 2
+            range: [0, 400]
+            blind: true
+        dilep_pt:
+            rebin: 2 
+            range: [0, 400]
+            blind: true
+        dilep_m:
+            rebin: 2 
+            range: [0, 120]
+            blind: true
+        met_pt:
+            rebin: 2 
+            range: [0, 250]
+            blind: true
+        njets:
+            rebin: 1
+            range: [2, 5]
+            blind: true
+        bjets:
+            rebin: 1
+            range: [0, 5]
+            blind: true
+        dphi_met_ll:
+            rebin: 2
+            range: [1, 3.14159]
+            blind: true
+        gnn_score:
+            rebin: 5
+            range: [0, 1]
+            blind: true
+        gnn_flat:
+            rebin: 10
+            range: [0, 1]
+            blind: true
+        dijet_mass:
+            rebin: 2
+            range: [0,2000]
+            blind: true
+        dijet_deta:
+            rebin: 1
+            range: [0, 5.5]
+            blind: true
+        lead_jet_pt:
+            rebin: 2
+            range: [30, 300]
+            blind: true
+        trail_jet_pt:
+            rebin: 2
+            range: [30, 200]
+            blind: true
+        lead_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: true
+        trail_jet_eta:
+            rebin: 2
+            range: [-5,5]
+            blind: true
+        min_dphi_met_j:
+            rebin: 2
+            range: [0, 2]
+            blind: true
