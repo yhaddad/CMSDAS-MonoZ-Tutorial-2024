@@ -15,7 +15,10 @@ class EventSumw(processor.ProcessorABC):
         
         sumw = 1.0
         if is_mc:
-            sumw = ak.sum(event.genEventSumw)
+            try:
+                sumw = ak.sum(event.genEventSumw)
+            except:
+                sumw = -1.0
         else:
             sumw = -1.0
         

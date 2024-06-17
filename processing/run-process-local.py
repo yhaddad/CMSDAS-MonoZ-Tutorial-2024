@@ -63,23 +63,12 @@ def main():
 
     for dataset in datasets:
         sumwdatasets[dataset]["files"] = {k: "Runs" for k in datasets[dataset]["files"]}
-
     
 
     weight_syst_list = ["puWeight", "PDF", "MuonSF", "ElecronSF", "EWK", "nvtxWeight", "TriggerSFWeight", "btagEventWeight",
-            "QCDScale0w", "QCDScale1w", "QCDScale2w"]
+                        "QCDScale0w", "QCDScale1w", "QCDScale2w"]
     shift_syst_list = ["ElectronEn", "MuonEn", "jesTotal", "jer"]
     
-    # originaldataset = copy.deepcopy(datasets)
-    # originalsumwdataset = copy.deepcopy(sumwdatasets)
-    # for dataset in originaldataset:
-    #     if "DoubleEG_Run2016B_ver2-Nano1June2019_ver2-v1" not in dataset:
-    #         continue
-    #     datasets = {dataset: originaldataset[dataset]}
-    #     sumwdatasets = {dataset: originalsumwdataset[dataset]}
-        
-    #     print(dataset)
-
     if options.ncores > 1:
         warnings.filterwarnings("ignore")
         client = Client(processes=True, threads_per_worker=1, n_workers=options.ncores, memory_limit='4GB')
@@ -103,17 +92,17 @@ def main():
             sumw_updated = json.load(file)
     else:
         print("Preprocessing Runs Trees")
-        sumw_runnable, sumw_updated = preprocess(
-            sumwdatasets, align_clusters=False, step_size=100_000, files_per_batch=1,
-            skip_bad_files=True, save_form=True,
-        )
-        output_file = "sumw_compute"
-        with gzip.open(f"{output_file}_runnable.json.gz", "wt") as file:
-            print(f"Saved runnable fileset chunks to {output_file}_runnable.json.gz")
-            json.dump(sumw_runnable, file, indent=2)
-        with gzip.open(f"{output_file}_all.json.gz", "wt") as file:
-            print(f"Saved all fileset chunks to {output_file}_all.json.gz")
-            json.dump(sumw_updated, file, indent=2)
+        #sumw_runnable, sumw_updated = preprocess(
+        #    sumwdatasets, align_clusters=False, step_size=100_000, files_per_batch=1,
+        #    skip_bad_files=True, save_form=True,
+        #)
+        #output_file = "sumw_compute"
+        #with gzip.open(f"{output_file}_runnable.json.gz", "wt") as file:
+        #    print(f"Saved runnable fileset chunks to {output_file}_runnable.json.gz")
+        #    json.dump(sumw_runnable, file, indent=2)
+        #with gzip.open(f"{output_file}_all.json.gz", "wt") as file:
+        #    print(f"Saved all fileset chunks to {output_file}_all.json.gz")
+        #    json.dump(sumw_updated, file, indent=2)
             
         print("Preprocessing Events Trees")
         dataset_runnable, dataset_updated = preprocess(
@@ -129,14 +118,14 @@ def main():
             json.dump(dataset_updated, file, indent=2)
 
     print("Building TaskGraph for Runs Trees")
-    sumw_compute, srep_compute = apply_to_fileset(
-        EventSumw(),
-        max_chunks(sumw_runnable, options.max_chunks),
-        schemaclass=BaseSchema,
-        uproot_options={"allow_read_errors_with_report": (OSError, ValueError)}
-    )
-    print("Processing Sum Weights")
-    (sumw, sreport) = dask.compute(sumw_compute, srep_compute)
+    #sumw_compute, srep_compute = apply_to_fileset(
+    #    EventSumw(),
+    #    max_chunks(sumw_runnable, options.max_chunks),
+    #    schemaclass=BaseSchema,
+    #    uproot_options={"allow_read_errors_with_report": (OSError, ValueError)}
+    #)
+    #print("Processing Sum Weights")
+    #(sumw, sreport) = dask.compute(sumw_compute, srep_compute)
             
     print("Building TaskGraph for Events Trees")
     event_compute, rep_compute = apply_to_fileset(
@@ -147,15 +136,16 @@ def main():
     )
    
     print("Processing Histogramming TaskGraphs")
-    # (histograms, sumw, report) = dask.compute(event_compute, sumw_compute, rep_compute)
-    (histograms, report) = dask.compute(event_compute, rep_compute)
+    (histograms, sumw, report) = dask.compute(event_compute, sumw_compute, rep_compute)
+    #(histograms, report) = dask.compute(event_compute, rep_compute)
+    print(report)
     print("Done")
 
     bh_output = {}
     for key, content in histograms.items():
         bh_output[key] = {
             "hist": content,
-            "sumw": sumw[key],
+            #"sumw": sumw[key],
         }
 
     print(bh_output)
