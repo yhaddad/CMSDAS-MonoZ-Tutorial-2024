@@ -61,7 +61,7 @@ yaml.add_constructor('!include', construct_include, config_loader)
 
 def main():
     parser = argparse.ArgumentParser(description='The Creator of Combinators')
-    parser.add_argument("-i"  , "--input"   , type=str , default="./config/input_UL_2018_timgad-vbs.yaml")
+    parser.add_argument("-i"  , "--input"   , type=str , default="./config/input_DAS_2016.yaml")
     parser.add_argument("-v"  , "--variable", type=str , default="nnscore")
     parser.add_argument("-y"  , "--era"     , type=str , default='2018')
     parser.add_argument("-c"  , "--channel" , nargs='+', type=str)
@@ -184,112 +184,52 @@ def main():
         
         if not card.add_nominal(p.name, p.get("nominal"), p.ptype): continue 
 
-        # For the data driven no uncertainty
-        if "DY" in p.name and options.dd:
-            card.add_log_normal(p.name, f"CMS_lumi_{options.era}", config.luminosity.uncer)
-            card.add_log_normal(p.name, f"DY_dd_uncert_{options.era}", 0.1)
-            card.add_auto_stat()
-            continue
-
-        # luminausity
+        #Flat uncertaintes
         card.add_log_normal(p.name, f"CMS_lumi_{options.era}", config.luminosity.uncer)
-        
-        # scale factors / resolution
-        card.add_shape_nuisance(p.name, f"CMS_res_e_{options.era}"  , p.get("ElectronEn"), symmetrise=True)
-        card.add_shape_nuisance(p.name, f"CMS_res_m_{options.era}"  , p.get("MuonRoc")   , symmetrise=True)
-        card.add_shape_nuisance(p.name, f"CMS_lept_sf_{options.era}", p.get("LeptonSF")  , symmetrise=False)
-        card.add_shape_nuisance(p.name, f"CMS_trig_sf_{options.era}", p.get("triggerSF") , symmetrise=False)
+        card.add_log_normal(p.name, f"CMS_res_e_{options.era}", 1.005)
+        card.add_log_normal(p.name, f"CMS_res_e_{options.era}", 1.005)
+        card.add_log_normal(p.name, f"UEPS", 1.20)
 
-        # JES/JES and UEPS 
-        #card.add_shape_nuisance(p.name, f"CMS_jes_{options.era}", p.get("JES"), symmetrise=False) 
-        year = options.era.replace('APV','')
+        #Shape uncertainties
+        card.add_shape_nuisance(p.name, f"CMS_eff_m_{options.era}", p.get("MuonSF")  , symmetrise=False)
+        card.add_shape_nuisance(p.name, f"CMS_eff_e_{options.era}", p.get("ElectrronSF") , symmetrise=False)
+        card.add_shape_nuisance(p.name, f"CMS_JES_{options.era}"   , p.get(f"jesTotal")    , symmetrise=False) 
+        card.add_shape_nuisance(p.name, f"CMS_JER_{options.era}"   , p.get(f"jer")         , symmetrise=False) 
+        card.add_shape_nuisance(p.name, f"CMS_BTag_{options.era}"   , p.get(f"btagEventWeight")  , symmetrise=False) 
+        card.add_shape_nuisance(p.name, f"CMS_Trig_{options.era}"   , p.get(f"TriggerSFWeight")  , symmetrise=False)             
+        card.add_shape_nuisance(p.name, f"CMS_pfire_{options.era}"   , p.get(f"PrefireWeight")  , symmetrise=False) 
+        card.add_shape_nuisance(p.name, f"PDF_{options.era}"   , p.get(f"PDF")  , symmetrise=False)
+        card.add_shape_nuisance(p.name, f"CMS_Vx_{options.era}"   , p.get(f"nvtxWeight")  , symmetrise=False)
+        card.add_shape_nuisance(p.name, f"CMS_PU_{options.era}"   , p.get(f"puWeight")  , symmetrise=False)
 
-        card.add_shape_nuisance(p.name, f"JES_Absolute{year}"      , p.get(f"JES_Absolute{year}")      , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_BBEC1{year}"         , p.get(f"JES_BBEC1{year}")         , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_EC2{year}"           , p.get(f"JES_EC2{year}")           , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_HF{year}"            , p.get(f"JES_HF{year}")            , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_RelativeSample{year}", p.get(f"JES_RelativeSample{year}"), symmetrise=False) 
-
-        card.add_shape_nuisance(p.name, f"JES_Absolute"   , p.get("JES_Absolute")   , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_BBEC1"      , p.get("JES_BBEC1")      , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_EC2"        , p.get("JES_EC2")        , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_HF"         , p.get("JES_HF")         , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_RelativeBal", p.get("JES_RelativeBal"), symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"JES_FlavorQCD"  , p.get("JES_FlavorQCD")  , symmetrise=False) 
-
-        card.add_shape_nuisance(p.name, f"CMS_jer_{options.era}", p.get("JER"), symmetrise=False)
-        card.add_shape_nuisance(p.name, f"CMS_UES_{options.era}", p.get("UES"), symmetrise=False)
-        
-        # Can maybe ne correlated over era's? 
-        card.add_shape_nuisance(p.name, f"PS_FSR_{options.era}", p.get("UEPS_FSR"), symmetrise=False)
-        card.add_shape_nuisance(p.name, f"PS_ISR_{options.era}", p.get("UEPS_ISR"), symmetrise=False)
-        
-        # taus
-        # tauIDvse_sf, tauIDvsmu_sf, tauIDvsjet_sf
-        card.add_shape_nuisance(p.name, f"tauIDvse_sf{options.era}"  , p.get("tauIDvse_sf"), symmetrise=False)
-        card.add_shape_nuisance(p.name, f"tauIDvsmu_sf{options.era}" , p.get("tauIDvsmu_sf"), symmetrise=False)
-        card.add_shape_nuisance(p.name, f"tauIDvsjet_sf{options.era}", p.get("tauIDvsjet_sf"), symmetrise=False)
-        
-        # b-tagging uncertainties
-        # btag_sf_bc_2016APV, btag_sf_light_2016APV
-        try:
-            card.add_shape_nuisance(p.name, f"CMS_btag_sf_uds_{options.era}" , p.get(f"btag_sf_light_{options.era}"), symmetrise=True)
-            card.add_shape_nuisance(p.name, f"CMS_btag_sf_bc_{options.era}"  , p.get(f"btag_sf_bc_{options.era}")   , symmetrise=False)
-            card.add_shape_nuisance(p.name, f"CMS_btag_df_stat_{options.era}", p.get("btag_sf_stat")            , symmetrise=False)
-        except:
-            pass
-        
-        # b-tagging uncertainties correlated over years
-        card.add_shape_nuisance(p.name, "CMS_btag_sf_bc"  , p.get("btag_sf_bc_correlated")   , symmetrise=False)
-        card.add_shape_nuisance(p.name, "CMS_btag_sf_uds" , p.get("btag_sf_light_correlated"), symmetrise=True)
-
-        # other uncertainties
-        card.add_shape_nuisance(p.name, f"CMS_pileup_{options.era}", p.get("pileup_weight"), symmetrise=False)
-
-        #QCD scale, PDF and other theory uncertainty
-        if 'gg' not in p.name:
+        #Shapes specific to certain backgrounds 
+        if 'DY' not in p.name:
             card.add_qcd_scales(
-                    p.name, f"CMS_QCDScale{p.name}", 
-                    [p.get("QCDScale0w"), p.get("QCDScale1w"), p.get("QCDScale2w")]
-        )
-        
-        # PDF uncertaintites / not working for the moment
-        card.add_shape_nuisance(p.name, f"pdf_{p.name}"   , p.get("PDF_weight"), symmetrise=False)
-        card.add_shape_nuisance(p.name, f"alphaS_{p.name}", p.get("aS_weight" ), symmetrise=False)        
-        
-        # Electroweak Corrections uncertainties
+                name, "CMS_QCDScale{p.name}_{options.era}",
+                [p.get("QCDScale0w"), p.get("QCDScale1w"), p.get("QCDScale2w")]
+            )
         if 'WZ' in p.name:
-            card.add_shape_nuisance(p.name, "ewk_corr_WZ", p.get("kEW"), symmetrise=False)
-        if ('ZZ' in p.name) and ('EWK' not in p.name):
-            card.add_shape_nuisance(p.name, "ewk_corr_ZZ", p.get("kEW"), symmetrise=False)
-            
-        # define rates
-        if p.name  in ["WW"]:
-            if "vbs-EM" in card_name:
-                card.add_rate_param(f"NormWW_{options.era}", "vbs-EM*", p.name)
-            elif "SR" in card_name:
-                card.add_rate_param(f"NormWW_{options.era}", card_name+'*', p.name)
-        
-        # define rate 3L categoryel 
-        elif p.name in ["WZ"]:
-            if "vbs-3L" in card_name:
-                card.add_rate_param(f"NormWZ_{options.era}", "vbs-3L*", p.name)
-            elif "SR" in card_name:
-                card.add_rate_param(f"NormWZ_{options.era}", card_name+'*', p.name)
-        
-        # define rate for DY category
-        elif p.name in ["DY"] and not options.dd:
-            if "DY" in card_name:
-                card.add_rate_param(f"NormDY_{options.era}", "vbs-DY*", p.name)
-            elif "SR" in card_name:
-                card.add_rate_param(f"NormDY_{options.era}", card_name+'*', p.name)
-        
-        # define rate for TOP category
-        elif p.name in ["Top"]:
-            if "EM" in card_name:
-                card.add_rate_param(f"NormTOP_{options.era}", "vbs-EM*", p.name)
-            elif "SR" in card_name:
-                card.add_rate_param(f"NormTOP_{options.era}", card_name+'*', p.name) 
+            card.add_shape_nuisance(p.name, f"EWKWZ"   , p.get(f"EWK")  , symmetrise=True)
+        if 'ZZ' in p.name:
+            card.add_shape_nuisance(p.name, f"EWKZZ"   , p.get(f"EWK")  , symmetrise=True)
+       
+
+        #Add rate params for the various processes
+        if p.name  in ["TOP", "WW"]:
+            if "catEM" in card_name:
+                card.add_rate_param("EMnorm_" + options.era, "catEM*", p.name)
+            elif "BSM" in card_name:
+                card.add_rate_param("EMnorm_" + options.era, "chBSM*", p.name)
+        elif p.name in ["ZZ", "WZ"]:
+            if ("cat3L" in card_name) or ("cat4L" in card_name):
+                card.add_rate_param("VVnorm_" + options.era, "cat3L*", p.name)
+                card.add_rate_param("VVnorm_" + options.era, "cat4L*", p.name)
+            elif "BSM" in card_name:
+                card.add_rate_param("VVnorm_" + options.era, "chBSM*", p.name)
+        elif p.name in ["DY"]:
+            if  "BSM" in card_name:
+                card.add_rate_param("DYnorm_" + options.era, "chBSM*", p.name)
+        # adding statistical uncertainties
         card.add_auto_stat()
 
     # saving the datacard
