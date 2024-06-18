@@ -13,7 +13,7 @@ For more information on how the limits are calulated you can see these `slides <
 Plotting Limits
 ~~~~~~~~~~~~~~~
 	  
-Once we have all the limits for the dark matter samples we can plot the limits as a function of the mediator mass. Lets do this for the scalar and pseudoscalar models. We can plot these limits with the code here: `notebook <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial/blob/master/limits-DM-CMSDAS.ipynb>`_.
+Once we have all the limits for the dark matter samples we can plot the limits as a function of the mediator mass. Lets do this for the scalar and pseudoscalar models. The example code to plot these limits can be found in file limits-DM-CMSDAS.ipynb in the long exercise directory. You can open this in SWAN as well.
 
 Here, we are plotting the mu value directly for each of the different mediator masses that we created samples for. We interpolate between points in order to get a full distribution. This is done for the expected limits (without data and using toys) and for the observed limits (which are the data). Do the expected and observed limits seem to be close to each other? What would it mean if the observed is higher? What about lower?
 
