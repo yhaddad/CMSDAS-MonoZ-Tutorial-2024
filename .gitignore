@@ -1,3 +1,4 @@
 *.ipynb
 *.ipynb_*
 *.vscode
+*__pycache__*

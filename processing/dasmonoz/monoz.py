@@ -90,9 +90,6 @@ class BaseProducer(ProcessorABC):
     def weighting(self, event):
         return NotImplemented
 
-    def naming_schema(self, *args):
-        return NotImplemented
-    
     def postprocess(self, accumulator):
         pass
 
@@ -231,12 +228,12 @@ class MonoZ(BaseProducer):
         ]
     }
 
-    def weighting(self, event: dask_awkward.Array):
+    def weighting(self, event: dask_awkward.lib.core.Array):
 
         weights = Weights(None, storeIndividual=True)
         # For data we want a nominal weight of 1, and we do an early return from this function
         if not event.metadata["is_mc"]:
-            weights.add("data", ak.ones_like(event.event))
+            weights.add("data", ak.ones_like(event.ngood_jets))
             return weights
 
         # For MonteCarlo, we add mulitple weights, some with systematic variations (4 args)
@@ -256,7 +253,3 @@ class MonoZ(BaseProducer):
         # missing are --> MuonSF, ElectronSF, PrefireWeight, nvtxWeight, TriggerSFWeight, btagEventWeight
 
         return weights
-
-    def naming_schema(self, name, region):
-        return f'{name}_{self.sample}_{region}{self.syst_suffix}'
-

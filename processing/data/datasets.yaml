@@ -682,7 +682,8 @@ GluGluToContinToZZTo2mu2nu_13TeV_MCFM701_pythia8:
     is_mc: true
 GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8:
   files:
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8/tree_0.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8/tree_0.root
+    : Events
   metadata:
     is_mc: true
 GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8:
@@ -704,7 +705,6 @@ GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8:
     is_mc: true
 MuonEG_Run2016B_ver2-Nano1June2019_ver2-v1:
   files:
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/MuonEG_Run2016B_ver2-Nano1June2019_ver2-v1/tree_0.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/MuonEG_Run2016B_ver2-Nano1June2019_ver2-v1/tree_1.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/MuonEG_Run2016B_ver2-Nano1June2019_ver2-v1/tree_10.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/MuonEG_Run2016B_ver2-Nano1June2019_ver2-v1/tree_11.root: Events
@@ -1525,73 +1525,14 @@ SingleElectron_Run2016G-Nano1June2019-v1:
     is_mc: false
 SingleElectron_Run2016H-Nano1June2019-v1:
   files:
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_0.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_1.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_10.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_11.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_12.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_13.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_14.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_15.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_16.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_17.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_18.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_19.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_2.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_20.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_21.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_22.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_23.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_24.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_25.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_26.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_27.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_28.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_29.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_3.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_30.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_31.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_32.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_33.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_34.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_35.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_36.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_37.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_38.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_39.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_4.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_40.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_41.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_42.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_43.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_44.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_45.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_46.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_47.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_48.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_49.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_5.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_50.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_51.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_52.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_53.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_54.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_55.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_56.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_57.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_58.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_59.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_6.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_60.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_61.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_62.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_63.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_64.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_65.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_66.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_7.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_8.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleElectron_Run2016H-Nano1June2019-v1/tree_9.root: Events
   metadata:
     is_mc: false
 SingleMuon_Run2016B_ver2-Nano1June2019_ver2-v1:
@@ -1784,7 +1725,6 @@ SingleMuon_Run2016D-Nano1June2019-v1:
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleMuon_Run2016D-Nano1June2019-v1/tree_56.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleMuon_Run2016D-Nano1June2019-v1/tree_57.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleMuon_Run2016D-Nano1June2019-v1/tree_58.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleMuon_Run2016D-Nano1June2019-v1/tree_59.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleMuon_Run2016D-Nano1June2019-v1/tree_6.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleMuon_Run2016D-Nano1June2019-v1/tree_7.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/SingleMuon_Run2016D-Nano1June2019-v1/tree_8.root: Events
@@ -2062,76 +2002,140 @@ TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8:
   files:
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_0.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_1.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_10.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_11.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_12.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_13.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_14.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_15.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_16.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_17.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_18.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_19.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_10.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_11.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_12.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_13.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_14.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_15.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_16.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_17.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_18.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_19.root
+    : Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_2.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_20.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_21.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_22.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_23.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_24.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_25.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_26.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_27.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_28.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_29.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_20.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_21.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_22.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_23.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_24.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_25.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_26.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_27.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_28.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_29.root
+    : Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_3.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_30.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_31.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_32.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_33.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_34.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_35.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_36.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_37.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_38.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_39.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_30.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_31.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_32.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_33.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_34.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_35.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_36.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_37.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_38.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_39.root
+    : Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_4.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_40.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_41.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_42.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_43.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_44.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_45.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_46.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_47.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_48.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_49.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_40.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_41.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_42.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_43.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_44.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_45.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_46.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_47.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_48.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_49.root
+    : Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_5.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_50.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_51.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_52.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_53.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_54.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_55.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_56.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_57.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_58.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_59.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_50.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_51.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_52.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_53.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_54.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_55.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_56.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_57.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_58.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_59.root
+    : Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_6.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_60.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_61.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_62.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_63.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_64.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_65.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_66.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_67.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_68.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_69.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_60.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_61.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_62.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_63.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_64.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_65.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_66.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_67.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_68.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_69.root
+    : Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_7.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_70.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_71.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_72.root: Events
-    file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_73.root: Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_70.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_71.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_72.root
+    : Events
+    ? file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_73.root
+    : Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_8.root: Events
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8/tree_9.root: Events
   metadata:

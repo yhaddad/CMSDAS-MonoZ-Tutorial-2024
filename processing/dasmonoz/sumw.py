@@ -9,7 +9,6 @@ class EventSumw(processor.ProcessorABC):
         dataset_name = event.metadata['dataset']
         is_mc = event.metadata.get("is_mc")
         
-        print("sumw:dataset_name(isMC) = ", dataset_name, is_mc)
         if is_mc is None:
             is_mc = 'data' not in dataset_name.lower()
         

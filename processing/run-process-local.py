@@ -14,11 +14,17 @@ import warnings
 import yaml
 from matplotlib.pyplot import hist
 from dask.diagnostics import ProgressBar
-from dask.distributed import Client, progress
-
+from dask.distributed import Client
 from dasmonoz.monoz import MonoZ
 from dasmonoz.sumw import EventSumw
 
+
+def debug_shapes(data):
+    for key, value in data.items():
+        print(f"Shape of {key}")
+        for i,v in value['files'].items():
+            print(f"     --> {i.split('/')[-1]} = {v['num_entries']}") 
+    return data
 
 def main():
     parser = argparse.ArgumentParser("")
@@ -26,26 +32,10 @@ def main():
     parser.add_argument('-era'    , '--era' , type=str, default="2018", help="")
     parser.add_argument('--datasets', type=str, default='./data/datasets.yaml', help='input dataset yaml')
     parser.add_argument('--preprocessed', action='store_true', help='load preprocessed datasets saved in json form (skip preprocessing again): may not catch files that have become inaccessible since preprocessing')
-    parser.add_argument('-max_chunks', '--max_chunks', type=int, default=300, help="limit number of chunks per-file to this number at most")
+    parser.add_argument('-max_chunks', '--max_chunks', type=int, default=100, help="limit number of chunks per-file to this number at most")
     parser.add_argument('-ncores', '--ncores', type=int, default=1, help="Number of cores to run dask on locally: 1 uses default scheduler, more creates a distributed LocalCluster")
      
     options  = parser.parse_args()
-
-    # uncommment for testing the code using two files
-    # basedir = "file://data/"
-    # datasets: dict = {
-    #     "DM": {
-    #         "files": {
-    #             f"{basedir}testfile.root": "Events",
-    #             f"{basedir}tree_0.root": "Events",
-    #         },
-    #         'metadata':{
-    #             'era': options.era,
-    #             'is_mc': True 
-    #         }
-    #     }
-    # }
-    # pprint.pprint(datasets)
     
     datasets:dict = dict()
     with open(options.datasets, 'r') as f:
@@ -53,17 +43,22 @@ def main():
             datasets = yaml.safe_load(f)
         except yaml.YAMLError as exc:
             print(exc)    
-    # pprint.pprint(datasets[list(datasets.keys())[0]])
-    for i, c in datasets.items():
-        print(i, len(c['files']))
-        
-    # Now lets setup to process the sum of weights
-    # Here we change from the Event tree to Runs, that contains the SumW
-    sumwdatasets = copy.deepcopy(datasets)
-
-    for dataset in datasets:
-        sumwdatasets[dataset]["files"] = {k: "Runs" for k in datasets[dataset]["files"]}
     
+    
+    datasets_sumw = copy.deepcopy(datasets)
+    datasets_simu = copy.deepcopy(datasets)
+    datasets_data = copy.deepcopy(datasets)
+    
+    for dataset in datasets:
+        datasets_sumw[dataset]["files"] = {k: "Runs" for k in datasets[dataset]["files"]}
+    
+    datasets_sumw = {k:v for k,v in datasets_sumw.items() if v["metadata"]["is_mc"]}
+    datasets_simu = {k:v for k,v in datasets_simu.items() if v["metadata"]["is_mc"]}
+    datasets_data = {k:v for k,v in datasets_data.items() if "DoubleEG_Run2016B" in k}
+
+    print(datasets_data.keys())
+    print(datasets_sumw.keys())
+    print(datasets_simu.keys())
 
     weight_syst_list = ["puWeight", "PDF", "MuonSF", "ElecronSF", "EWK", "nvtxWeight", "TriggerSFWeight", "btagEventWeight",
                         "QCDScale0w", "QCDScale1w", "QCDScale2w"]
@@ -75,77 +70,82 @@ def main():
         print("Dashboard:", client.dashboard_link)
 
     
-    if options.preprocessed:
-        print("Loading preprocessed datasets from gzipped json")
-
-        # Events trees
-        output_file = "event_compute"
-        with gzip.open(f"{output_file}_runnable.json.gz", "rt") as file:
-            dataset_runnable = json.load(file)
-        with gzip.open(f"{output_file}_all.json.gz", "rt") as file:
-            dataset_updated = json.load(file)
-        # Runs trees
-        output_file = "sumw_compute"
-        with gzip.open(f"{output_file}_runnable.json.gz", "rt") as file:
-            sumw_runnable = json.load(file)
-        with gzip.open(f"{output_file}_all.json.gz", "rt") as file:
-            sumw_updated = json.load(file)
-    else:
-        print("Preprocessing Runs Trees")
-        #sumw_runnable, sumw_updated = preprocess(
-        #    sumwdatasets, align_clusters=False, step_size=100_000, files_per_batch=1,
-        #    skip_bad_files=True, save_form=True,
-        #)
-        #output_file = "sumw_compute"
-        #with gzip.open(f"{output_file}_runnable.json.gz", "wt") as file:
-        #    print(f"Saved runnable fileset chunks to {output_file}_runnable.json.gz")
-        #    json.dump(sumw_runnable, file, indent=2)
-        #with gzip.open(f"{output_file}_all.json.gz", "wt") as file:
-        #    print(f"Saved all fileset chunks to {output_file}_all.json.gz")
-        #    json.dump(sumw_updated, file, indent=2)
-            
-        print("Preprocessing Events Trees")
-        dataset_runnable, dataset_updated = preprocess(
-            datasets, align_clusters=False, step_size=100_000, files_per_batch=1,
-            skip_bad_files=True, save_form=False,
-        )
-        output_file = "event_compute"
-        with gzip.open(f"{output_file}_runnable.json.gz", "wt") as file:
-            print(f"Saved runnable fileset chunks to {output_file}_runnable.json.gz")
-            json.dump(dataset_runnable, file, indent=2)
-        with gzip.open(f"{output_file}_all.json.gz", "wt") as file:
-            print(f"Saved all fileset chunks to {output_file}_all.json.gz")
-            json.dump(dataset_updated, file, indent=2)
-
-    print("Building TaskGraph for Runs Trees")
-    #sumw_compute, srep_compute = apply_to_fileset(
-    #    EventSumw(),
-    #    max_chunks(sumw_runnable, options.max_chunks),
-    #    schemaclass=BaseSchema,
-    #    uproot_options={"allow_read_errors_with_report": (OSError, ValueError)}
-    #)
-    #print("Processing Sum Weights")
-    #(sumw, sreport) = dask.compute(sumw_compute, srep_compute)
-            
-    print("Building TaskGraph for Events Trees")
-    event_compute, rep_compute = apply_to_fileset(
-        MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
-        max_chunks(dataset_runnable, options.max_chunks),
-        schemaclass=BaseSchema,
-        uproot_options={"allow_read_errors_with_report": (OSError,IndexError)}
+    print("Processing Sumw ... ")
+    for i, c in datasets_sumw.items():
+        print(i, len(c['files']))
+  
+    sumw_runnable, _ = preprocess(
+            datasets_sumw, 
+            align_clusters=False, 
+            step_size=100_000, 
+            files_per_batch=1,
+            skip_bad_files=True, 
+            save_form=True,
     )
-   
-    print("Processing Histogramming TaskGraphs")
-    (histograms, sumw, report) = dask.compute(event_compute, sumw_compute, rep_compute)
-    #(histograms, report) = dask.compute(event_compute, rep_compute)
-    print(report)
-    print("Done")
+          
+    sumw_compute = apply_to_fileset(
+            EventSumw(), max_chunks(sumw_runnable, options.max_chunks),
+            schemaclass=BaseSchema,
+    )
+    (sumw,) = dask.compute(sumw_compute)
+     
+    print("Processing MC Events ... ")
+    for i, c in datasets_simu.items():
+        print(i, len(c['files']))
+  
+    dataset_simu_runnable, _ = preprocess(
+        datasets_simu, 
+        align_clusters=False, 
+        step_size=100_000, 
+        files_per_batch=1,
+        skip_bad_files=True,
+        save_form=True,
+    )
 
+    event_simu_compute = apply_to_fileset(
+        MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
+        max_chunks(dataset_simu_runnable, options.max_chunks),
+        schemaclass=BaseSchema,
+        #uproot_options={"allow_read_errors_with_report": (OSError,IndexError)}
+    )
+    (histograms_simu,) = dask.compute(event_simu_compute)
+    
+    print(histograms_simu)
+
+    print("Processing Data Events ... ")
+    for i, c in datasets_data.items():
+        print(i, len(c['files']))
+
+    dataset_data_runnable, _ = preprocess(
+        datasets_data, 
+        align_clusters=False, 
+        step_size=100_000, 
+        files_per_batch=1,
+        skip_bad_files=True,
+        save_form=True,
+    )
+
+    event_data_compute = apply_to_fileset(
+        MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
+        max_chunks(dataset_data_runnable, 300),
+        schemaclass=BaseSchema,
+    )
+
+    (histograms_data,) = dask.compute(event_data_compute)
+
+   
+    
     bh_output = {}
-    for key, content in histograms.items():
+    for key, content in histograms_simu.items():
         bh_output[key] = {
             "hist": content,
-            #"sumw": sumw[key],
+            "sumw": sumw[key],
+        }
+
+    for key, content in histograms_data.items():
+        bh_output[key] = {
+            "hist": content,
+            "sumw": -1.0
         }
 
     print(bh_output)
