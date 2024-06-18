@@ -18,14 +18,6 @@ from dask.distributed import Client
 from dasmonoz.monoz import MonoZ
 from dasmonoz.sumw import EventSumw
 
-
-def debug_shapes(data):
-    for key, value in data.items():
-        print(f"Shape of {key}")
-        for i,v in value['files'].items():
-            print(f"     --> {i.split('/')[-1]} = {v['num_entries']}") 
-    return data
-
 def main():
     parser = argparse.ArgumentParser("")
     parser.add_argument('-jobs' , '--jobs'  , type=int, default=10    , help="")
@@ -54,7 +46,7 @@ def main():
     
     datasets_sumw = {k:v for k,v in datasets_sumw.items() if v["metadata"]["is_mc"]}
     datasets_simu = {k:v for k,v in datasets_simu.items() if v["metadata"]["is_mc"]}
-    datasets_data = {k:v for k,v in datasets_data.items() if "DoubleEG_Run2016B" in k}
+    datasets_data = {k:v for k,v in datasets_data.items() if "Run20" in k}
 
     print(datasets_data.keys())
     print(datasets_sumw.keys())
