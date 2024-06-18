@@ -11,6 +11,34 @@ Combine is a powerful tool with many different applications. For this excercise 
 2. As a fitDiagnostics tool to check the normalization after the fit
 3. To find the limits of our various signal samples
 
+Installing Combine
+******************
+
+Documentation for combine can be found here: `combine docs <https://cms-analysis.github.io/HiggsAnalysis-CombinedLimit/latest/>`_. To install and run it on lxplus9, we'll need to use a singularity image of sl7 as there's no version of combine compatible with an EL9 CMSSW release as of yet. This is not too complicated as lxplus maintains these images that can be accesses sy simply typing `cmssw-el*` in the terminal where * can be 5,6,7,8 or 9. To close the image, simply type `exit`. 
+
+To set-up combine for this exercise, log into lxplus and setup a directory for this part of the exercise:
+
+.. code-block:: bash
+
+    mkdir -p your/working/directory
+    cd your/working/directory
+    cmssw-el7
+    export SCRAM_ARCH=slc7_amd64_gcc900
+    cmsrel CMSSW_11_3_4
+    cd CMSSW_11_3_4/src/
+    cmsenv
+
+    git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit
+    cd HiggsAnalysis/CombinedLimit/
+    git fetch origin
+    git checkout v9.2.1
+
+    cd $CMSSW_BASE/src
+    bash <(curl -s https://raw.githubusercontent.com/cms-analysis/CombineHarvester/main/CombineTools/scripts/sparse-checkout-ssh.sh)
+    scramv1 b clean
+    scramv1 b
+
+
 Impact Plots
 ************
 
@@ -31,7 +59,7 @@ After running the plotImpacts.py file you should have a summary of the actual im
       :width: 900
       :alt: Alternative text
 
-In this sample you can see what a typical impact plot looks like. Here r stands for the signal strength. In the leftmost column you should see a list of various systematic uncertainties (hopefully you will recognize these from the datacars!). The middle column shows the pull values of the uncertainties. This column effectively shows how far off the nominal value combine is using for the fit (if combine were to only use the nominal values then all values here would be 1). The last column is the effect of the systematic uncertainty on the actual signal strength r. If an uncertainty can have a large effect on the signal strength then this delta r value gets larger. This last column takes into account both the up and down fluctuations of the uncertainty. For this plot, the uncertainties are ordered by their effect on the signal strength. There are several more uncertainites than this but only the first page was necessary here as an example.
+In this sample you can see what a typical impact plot looks like. Here r stands for the signal strength. In the leftmost column you should see a list of various systematic uncertainties (hopefully you will recognize these from the datacards!). The middle column shows the pull values of the uncertainties. This column effectively shows how far off the nominal value combine is using for the fit (if combine were to only use the nominal values then all values here would be 1). The last column is the effect of the systematic uncertainty on the actual signal strength r. If an uncertainty can have a large effect on the signal strength then this delta r value gets larger. This last column takes into account both the up and down fluctuations of the uncertainty. For this plot, the uncertainties are ordered by their effect on the signal strength. There are several more uncertainties than this but only the first page was necessary here as an example.
 
 FitDiagnostics
 **************
@@ -59,7 +87,7 @@ This is the bread and butter of the combine tool. Here we will find the limits o
 
       combine -M AsymptoticLimits --datacard workspace_TEST.root -m 125 -t -1 --name "process name" --rMax=5 --rMin=-10 --cminFallbackAlgo Minuit2,Migrad,0:0.05 --X-rtd MINIMIZER_analytic --X-rtd FAST_VERTICAL_MORPH
 
-Here you need to make sure the process in the workspace_TEST.root is the same as <process name>. This will create limits for this sepcific sample. There should output like below:
+Here you need to make sure the process in the workspace_TEST.root is the same as <process name>. This will create limits for this specific sample. There should output like below:
 
 .. code-block:: sh
 
@@ -91,19 +119,17 @@ Now we have a limit on the signal strength of a DM model! This limit takes into 
 This will give output for all of the DM samples available. From here we can make summary plots as discussed in the Results section.
 
 Postfit Plotting
-~~~~~~~~~~~~~~~~
+----------------
 
 Once we have this FitDiagnostics file from the instructions above we can start to look at the distributions pre-fit and post-fit. Lets do this through the SWAN tool here:
 
 `SWAN <https://swan.web.cern.ch/swan/>`_.
 
 
-Click on the large link and a menu should appear. The environment is fine as it is naturally configured so hit the "start my session" button. Here you can start new projects and open jupyter notebooks to write code. The advantage of swan is that it is hosted with eos so we have access to all of our files. We will use this tool to do the plotting from this point. You can grab the code you will need here:
+Click on the large link and a menu should appear. The environment is fine as it is naturally configured so hit the "start my session" button. Here you can start new projects and open jupyter notebooks to write code. The advantage of swan is that it is hosted with EOS so we have access to all of our files. You can access your EOS space from lxplus by going to /eos/user/<first letter of username>/<username> (make a symlink to this for easier access). Your projects will appear in the directory `SWAN_projects`. We will use this tool to do the plotting from this point. You can make new directory for the long exercise and clone the repo here: `Github <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024>`_.
 
-`Github <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024>`_.
-
-Starting
-********
+Comparing Postfit
+*****************
 
 The file we will start with is the CMSDAS_Postfit.ipynb
 
