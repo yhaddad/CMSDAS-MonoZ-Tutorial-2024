@@ -1,11 +1,14 @@
 import os
+from time import process_time
 import yaml
+import uproot
 
-def list_files(directory):
+def list_files(directory, data_dir):
     process_files = {}
     for root, dirs, files in os.walk(directory):
-        if 'merged' in root: continue
+        print(f" --> {root}")
         for file in files:
+            fields = set()
             if file.endswith(".root"):
                 process_name = os.path.basename(root)
                 
@@ -13,8 +16,17 @@ def list_files(directory):
                     process_files[process_name] = {}
                 
                 file_path = os.path.join(root, file)
-                process_files[process_name][f"file:/{file_path}"] = "Events"
-    
+                with uproot.open(f"file://{file_path}:Events") as events:
+                    fields = set(events.keys())
+                    if events.num_entries > 0:
+                        if 'Run20' in file_path:
+                            process_files[process_name][f"file://{os.path.join(data_dir, process_name, file)}"] = "Events"
+                            print(f"file://{os.path.join(data_dir, process_name, file)}")
+                        else:
+                            process_files[process_name][f"file://{file_path}"] = "Events"
+                    else:
+                        print(" --> no events !!")
+
     return process_files
 
 def write_yaml(process_files):
@@ -32,6 +44,8 @@ def write_yaml(process_files):
         yaml.dump(data, outfile, default_flow_style=False)
 
 if __name__ == "__main__":
-    directory = "/eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/"  
-    process_files = list_files(directory)
+    directory = "/eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/"
+    data_dir = "/eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/"
+    #data_dir = "/eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/"
+    process_files = list_files(directory, data_dir)
     write_yaml(process_files)
