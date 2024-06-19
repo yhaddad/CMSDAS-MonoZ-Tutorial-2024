@@ -89,7 +89,7 @@ def main():
         step_size=100_000, 
         files_per_batch=1,
         skip_bad_files=True,
-        save_form=True,
+        save_form=False,
     )
 
     event_simu_compute = apply_to_fileset(
