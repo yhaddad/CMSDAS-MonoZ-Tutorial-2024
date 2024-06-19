@@ -24,18 +24,28 @@ Install framework:
 
 .. code-block:: sh
 
-   cmsrel CMSSW_10_6_4 
-   cd CMSSW_10_6_4/src 
-   cmsenv
+   git clone git@github.com:yhaddad/CMSDAS-MonoZ-Tutorial-2024.git
+   cd CMSDAS-MonoZ-Tutorial-2024
+   sh bootstrap.sh
 
-   mkdir PhysicsTools/ 
-   git clone https://github.com/yhaddad/nanoAOD-tools.git PhysicsTools/NanoAODTools 
-   git clone git@github.com:yhaddad/MonoZNanoAOD.git PhysicsTools/MonoZ
-   cd $CMSSW_BASE/src/PhysicsTools/MonoZ/
-   git checkout remotes/origin/CMSDAS_MonoZ
 
-   cd $CMSSW_BASE/src 
-   scram b -j 10
+To start the singularity environment.
+
+.. code-block:: sh
+
+   ./shell
+
+If you want to start a jupyter session. Log into lxplus witht the following:
+
+.. code-block:: sh
+
+   ssh -L localhost:8NNN:localhost:8NNN lxplus.cern.ch
+
+Choose the port above (like 8099) and match it in the command below to start a jupyter session. You will need to copy the url from the following.
+
+.. code-block:: sh
+
+   jupyter lab --no-browser --port 8NNN
 
 
 List of backgrounds
@@ -54,7 +64,7 @@ It's important to define control regions to check that our simulation well descr
 
 1. 4 lepton control region (Normalization of ZZ)
 2. 3 lepton control region (Normalization of WZ)
-3. ElectronMuon control region (Normalization for WW and top pair production)
+3. Nonresonant control region (Normalization for WW and top pair production)
 4. Low pTmiss sideband region (Normalization for DY)
 
 Look at Trees introduction
@@ -70,7 +80,6 @@ An example of how to look at a sample root file:
 
 .. code-block:: sh
 
-   cmsenv
    root -l /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/ZZTo2L2Nu_13TeV_powheg_pythia8_ext1/tree_0.root
 
 This will open a root session where you can look at a sample file quickly in an interactive session:

@@ -5,7 +5,7 @@ Making Datacards
       :width: 900
       :alt: Alternative text
 
-An important part of an analysis before running combine is the creation of datacards describing the rates, uncertainties and normalizations for the various processes used in the analysis. We have a datacard producer that we run through SWAN that we use for this analysis. Unfortunatly, this is a complicated and time-consuming process so we have created the datacards for you directly. This section will give a description of the creation of these datacards and then a description to understand them.
+An important part of an analysis before running combine is the creation of datacards describing the rates, uncertainties and normalizations for the various processes used in the analysis. In this section we will describe what a typical datacard looks like and the various components. Finally we can run our own datacards and see the limits as described in the following section. 
 
 Mono Z Datacards
 ~~~~~~~~~~~~~~~~
@@ -135,24 +135,24 @@ We can also consider systematical uncertainties that affect not just the normali
    CMS_JES_2016             shape      1.000          1.000          1.000          1.000          1.000          1.000          1.000
    CMS_PU_2016              shape      1.000          1.000          1.000          1.000          1.000          1.000          1.000
    CMS_QCDScaleSignal_2016  shape      1.000            -              -              -              -              -              -
-   CMS_QCDScaleTOP_2016 shape       -              -              -              -              -            1.000            -
-   CMS_QCDScaleVVV_2016 shape        -              -              -              -            1.000            -              -
-   CMS_QCDScaleWW_2016  shape        -              -              -            1.000            -              -              -
-   CMS_QCDScaleWZ_2016  shape        -              -            1.000            -              -              -              -
-   CMS_QCDScaleZZ_2016  shape        -            1.000            -              -              -              -              -
-   CMS_RES_e              lnN      1.005         1.005          1.005          1.005          1.005          1.005          1.005
-   CMS_RES_m              lnN      1.005         1.005          1.005          1.005          1.005          1.005          1.005
-   CMS_Trig_2016        shape      1.000         1.000          1.000          1.000          1.000          1.000          1.000
-   CMS_Vx_2016          shape      1.000         1.000          1.000          1.000          1.000          1.000          1.000
-   CMS_lumi_2016          lnN      1.025         1.025          1.025          1.025          1.025          1.025          1.025
-   CMS_pfire_2016       shape      1.000           -              -              -              -              -              -
-   EWKWZ                shape        -              -            1.000            -              -              -              -
-   EWKZZ                shape        -            1.000            -              -              -              -              -
-   PDF_2016             shape      1.000         1.000          1.000          1.000          1.000          1.000          1.000
-   UEPS                   lnN      1.020         1.020          1.020          1.020          1.020          1.020          1.020
-   VVnorm_0_            shape        -            1.000          1.000              -            -              -              -
-   VVnorm_1_            shape        -            1.000          1.000              -            -              -              -
-   VVnorm_2_            shape        -            1.000          1.000              -            -              -              -
+   CMS_QCDScaleTOP_2016     shape        -              -              -              -              -            1.000            -
+   CMS_QCDScaleVVV_2016     shape        -              -              -              -            1.000            -              -
+   CMS_QCDScaleWW_2016      shape        -              -              -            1.000            -              -              -
+   CMS_QCDScaleWZ_2016      shape        -              -            1.000            -              -              -              -
+   CMS_QCDScaleZZ_2016      shape        -            1.000            -              -              -              -              -
+   CMS_RES_e                  lnN      1.005          1.005          1.005          1.005          1.005          1.005          1.005
+   CMS_RES_m                  lnN      1.005          1.005          1.005          1.005          1.005          1.005          1.005
+   CMS_Trig_2016            shape      1.000          1.000          1.000          1.000          1.000          1.000          1.000
+   CMS_Vx_2016              shape      1.000          1.000          1.000          1.000          1.000          1.000          1.000
+   CMS_lumi_2016              lnN      1.025          1.025          1.025          1.025          1.025          1.025          1.025
+   CMS_pfire_2016           shape      1.000            -              -              -              -              -              -
+   EWKWZ                    shape        -              -            1.000            -              -              -              -
+   EWKZZ                    shape        -            1.000            -              -              -              -              -
+   PDF_2016                 shape      1.000          1.000          1.000          1.000          1.000          1.000          1.000
+   UEPS                       lnN      1.020          1.020          1.020          1.020          1.020          1.020          1.020
+   VVnorm_0_                shape        -            1.000          1.000              -            -              -              -
+   VVnorm_1_                shape        -            1.000          1.000              -            -              -              -
+   VVnorm_2_                shape        -            1.000          1.000              -            -              -              -
 
 Normalizations
 **************
@@ -169,3 +169,18 @@ The last section handles the single bin normalization factors for the EMU (Top a
 
 Take some time to look through the datacards for the other channels (control regions). Do they make sense to you? Can you follow some of the systematics and see why they are applied to certain processes and not to others. What about the correlations? The next step would be to look at the combined.dat which combines all of the signal and control regions. These are much bigger but contain the same information. Does the combined datacard make sense? We will be using this as input to combine so make sure these are clear to you.
 
+Running your own datacards
+**************************
+
+The code to run the datacards can be see here `Datacard <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/makecard-boost.py>`_.
+
+In here the systematic variations are described here `systematic_variations <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/makecard-boost.py#L187-L214>`_.
+and the rate params here `rate_params <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/makecard-boost.py#L217-L231>`_.
+
+This will run datacards for every file here `Input <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/config/input_DAS_2016.yaml>`_.
+
+In order to run this code you will need to tell it the region of interest. This can be seen in an example command below:
+
+.. code-block:: html
+
+    python makecard-boost.py --name monoZ --input ./config/input_DAS_2016.yaml --era 2016 --variable measMET --channel cat3L
