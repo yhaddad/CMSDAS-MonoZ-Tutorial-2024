@@ -19,30 +19,29 @@ An Introduction to Making Histograms from Trees
 Starting from the NTuples we have introduced, we will make histograms for our Control and Signal regions. We will do these for each file filled with NTuples. This means we will need to run our code over a large number of files. In order to make this easier we will submit the jobs on HT Condor and place the output in another directory. These files will only contain the histograms that we want to look at and will be much easier to work with.
 
 The file that will make these histograms can be seen here:
-`Producer <https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py>`_.
+`Producer <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/processing/dasmonoz/monoz.py>`_.
 
 
 **In general this code can be split into 3 main categories**
 
-1. The definition of selections for the different regions and their associated binning: `bins <https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py#L40-L144>`_.
-2. The weights that will be applied in order to create the histograms. These include the Up and Down variations for our systematics: `weights <https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py#L212-L338>`_.
-3. Filling the histograms that we have defined with the weight that we have defined: `Fill <https://github.com/yhaddad/MonoZNanoAOD/blob/master/python/MonoZWSProducer.py#L342-L388>`_.
+1. The definition of selections for the different regions and their associated binning: `bins <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/processing/dasmonoz/monoz.py#L97-L229>`_.
+2. The weights that will be applied in order to create the histograms. These include the Up and Down variations for our systematics: `weights <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/processing/dasmonoz/monoz.py#L233-L253>`_.
+3. Filling the histograms that we have defined with the weight that we have defined: `Fill <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/processing/dasmonoz/monoz.py#L44-L76>`_.
 
 
-Lets run a sample and see the histograms. You can run this through the proc in the condor subdirectory:
-
-**MC**
+For this school, you will want to play with the selections and add in the systematics that need to be added. You can run the code with the following:
 
 .. code-block:: sh
 
-     python condor_WSProducer.py --jobNum=0 --isMC=1 --era=2016 --infile=/eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph/tree_0.root
+     python3 run-process-local.py --datasets data/datasets-test.yaml
 
-**Data**
+This is a test yaml. Run this to make sure everything in the code works smoothly. If it does then you can move to running the full set of datasets. For this we might need morer cores. Let's try with the full 8 cores. 
 
 .. code-block:: sh
 
-     python condor_WSProducer.py --jobNum=0 --isMC=0 --era=2016 --infile=/eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/DoubleMuon_Run2016G-Nano1June2019-v1/tree_1.root
+     python3 run-process-local.py --datasets data/datasets-full.yaml --ncores 8
 
+This command will run over all of the files included in the datasets yaml. This includes both data and MC as well as signal. This output should be stored in a pickle which can be used directly to produce datacards as described in the next section of this guide. The rest of this section will give a description of the regions and systematics from this code.
 
 Control Regions in the MonoZ analysis
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -196,57 +195,3 @@ Learning where these systematics come from can be an important part of an analys
 2. `Muon POG <https://twiki.cern.ch/twiki/bin/view/CMS/MuonPOG>`_.
 3. `JetMET POG <https://twiki.cern.ch/twiki/bin/view/CMS/JetMET>`_.
 
-
-Creating Histograms and HT Condor submission
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
- 
-In order to create all the histograms we need, we will submit through Condor. Condor will paralleize the jobs and drastically reduce the time required to run the jobs. For Condor we will submit the proc through a separate "run file". We can also choose the time we want in order to run our producer. Lower times will get higher priority but we need enough time to run the producer fully. Luckily, since this producer is only creating histograms we can run this quickly.
-
-For submitting we can use the following commands:
-
-**MC**
-
-.. code-block:: sh
-
-     python run_WSProducer.py --era=2016 --isMC=1 --tag=CMSDAS_NTuples --input=2016_list_MC.txt --force --queue=workday
-
-**Data**
-
-.. code-block:: sh
-
-     python run_WSProducer.py --era=2016 --isMC=0 --tag=CMSDAS_NTuples --input=2016_list_data.txt --force --queue=workday
-
-
-The following table lists the queue types of HTCondor `Condor <http://batchdocs.web.cern.ch/batchdocs/local/lsfmigratepractical.html>`_.
-
-.. list-table:: HTCondor vs LSF
-   :widths: 30 30 30
-   :header-rows: 1
-
-   * - *HTCondor*
-     -
-     - *LSF*
-   * - *name*
-     - *max duration*
-     - *name*
-   * - espresso
-     - 20min
-     - 8nm
-   * - microcentury
-     - 1h
-     - 1nh
-   * - longlunch
-     - 2h
-     - 8nh
-   * - workday
-     - 8h
-     - 1nd
-   * - tomorrow
-     - 1d
-     - 2nd
-   * - testmatch
-     - 3d
-     - 1nw
-   * - nextweek
-     - 1w
-     - 2nw
