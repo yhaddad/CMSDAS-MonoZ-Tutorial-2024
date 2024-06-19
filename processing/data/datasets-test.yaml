@@ -92,42 +92,6 @@ DoubleEG_Run2016B_ver2-Nano1June2019_ver2-v1:
     file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016B_ver2-Nano1June2019_ver2-v1/tree_9.root: Events
   metadata:
     is_mc: false
-DoubleEG_Run2016C-Nano1June2019-v1:
-  files:
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_0.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_1.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_10.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_11.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_12.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_13.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_14.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_15.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_16.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_17.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_18.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_19.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_2.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_20.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_21.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_22.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_23.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_24.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_25.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_26.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_27.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_28.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_29.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_3.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_30.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_31.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_4.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_5.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_6.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_7.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_8.root: Events
-    file:///eos/user/c/cmsdas/2024/long-ex-exo-monoz/datasets/DoubleEG_Run2016C-Nano1June2019-v1/tree_9.root: Events
-  metadata:
-    is_mc: false
 ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8:
   files:
     file:///eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples/ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8/tree_0.root: Events
