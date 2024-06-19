@@ -20,7 +20,10 @@ from dasmonoz.sumw import EventSumw
 
 def main():
     parser = argparse.ArgumentParser("")
+    parser.add_argument('-jobs' , '--jobs'  , type=int, default=10    , help="")
+    parser.add_argument('-era'    , '--era' , type=str, default="2018", help="")
     parser.add_argument('--datasets', type=str, default='./data/datasets.yaml', help='input dataset yaml')
+    parser.add_argument('--preprocessed', action='store_true', help='load preprocessed datasets saved in json form (skip preprocessing again): may not catch files that have become inaccessible since preprocessing')
     parser.add_argument('-max_chunks', '--max_chunks', type=int, default=100, help="limit number of chunks per-file to this number at most")
     parser.add_argument('-ncores', '--ncores', type=int, default=1, help="Number of cores to run dask on locally: 1 uses default scheduler, more creates a distributed LocalCluster")
      
@@ -49,17 +52,16 @@ def main():
     print(datasets_sumw.keys())
     print(datasets_simu.keys())
 
-    ## Systematic uncertainties, the weight based one and the shift based one. This is the full list of systematics
     weight_syst_list = ["puWeight", "PDF", "MuonSF", "ElecronSF", "EWK", "nvtxWeight", "TriggerSFWeight", "btagEventWeight",
                         "QCDScale0w", "QCDScale1w", "QCDScale2w"]
     shift_syst_list = ["ElectronEn", "MuonEn", "jesTotal", "jer"]
     
     if options.ncores > 1:
-        ## This is experimental, use with caution. Might run with errors in lxplus
         warnings.filterwarnings("ignore")
         client = Client(processes=True, threads_per_worker=1, n_workers=options.ncores, memory_limit='4GB')
         print("Dashboard:", client.dashboard_link)
 
+    
     print("Processing Sumw ... ")
     for i, c in datasets_sumw.items():
         print(i, len(c['files']))
@@ -96,33 +98,11 @@ def main():
         MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
         max_chunks(dataset_simu_runnable, options.max_chunks),
         schemaclass=BaseSchema,
+        #uproot_options={"allow_read_errors_with_report": (OSError,IndexError)}
     )
     (histograms_simu,) = dask.compute(event_simu_compute)
     
     print(histograms_simu)
-
-    print("Processing Data Events ... ")
-    for i, c in datasets_data.items():
-        print(i, len(c['files']))
-
-    dataset_data_runnable, _ = preprocess(
-        datasets_data, 
-        align_clusters=False, 
-        step_size=100_000, 
-        files_per_batch=1,
-        skip_bad_files=True,
-        save_form=True,
-    )
-
-    event_data_compute = apply_to_fileset(
-        MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
-        max_chunks(dataset_data_runnable, 300),
-        schemaclass=BaseSchema,
-    )
-
-    (histograms_data,) = dask.compute(event_data_compute)
-
-   
     
     bh_output = {}
     for key, content in histograms_simu.items():
@@ -131,19 +111,48 @@ def main():
             "sumw": sumw[key],
         }
 
-    for key, content in histograms_data.items():
-        bh_output[key] = {
-            "hist": content,
-            "sumw": -1.0
-        }
+
+    print("Processing Data Events ... ")
+    for i, c in datasets_data.items():
+        print(i, len(c['files']))
+
+        dataset_temp = {i: c}
+
+        dataset_data_runnable, _ = preprocess(
+            dataset_temp, 
+            align_clusters=False, 
+            step_size=100_000, 
+            files_per_batch=1,
+            skip_bad_files=True,
+            save_form=True,
+        )
+
+        event_data_compute = apply_to_fileset(
+            MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
+            max_chunks(dataset_data_runnable, 300),
+            schemaclass=BaseSchema,
+        )
+
+        (histograms_data,) = dask.compute(event_data_compute)
+        for key, content in histograms_data.items():
+            bh_output[key] = {
+                "hist": content,
+                "sumw": -1.0
+            }
+
 
     print(bh_output)
 
     with gzip.open("histograms.pkl.gz", "wb") as f:
-        pickle.dump(bh_output, f)    
+        pickle.dump(bh_output, f)
+
+    
+    
+    
 
 if __name__ == "__main__":
     # This progress bar should work for local dask clusters; for dask.distributed, try the dask.distributed.progress function instead
+
     ProgressBar().register()
     main()
 
