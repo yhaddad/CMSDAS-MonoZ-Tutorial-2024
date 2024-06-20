@@ -23,7 +23,6 @@ def main():
     parser.add_argument('-jobs' , '--jobs'  , type=int, default=10    , help="")
     parser.add_argument('-era'    , '--era' , type=str, default="2018", help="")
     parser.add_argument('--datasets', type=str, default='./data/datasets.yaml', help='input dataset yaml')
-    parser.add_argument('--preprocessed', action='store_true', help='load preprocessed datasets saved in json form (skip preprocessing again): may not catch files that have become inaccessible since preprocessing')
     parser.add_argument('-max_chunks', '--max_chunks', type=int, default=100, help="limit number of chunks per-file to this number at most")
     parser.add_argument('-ncores', '--ncores', type=int, default=1, help="Number of cores to run dask on locally: 1 uses default scheduler, more creates a distributed LocalCluster")
      
@@ -34,8 +33,7 @@ def main():
         try:
             datasets = yaml.safe_load(f)
         except yaml.YAMLError as exc:
-            print(exc)    
-    
+            print(exc) 
     
     datasets_sumw = copy.deepcopy(datasets)
     datasets_simu = copy.deepcopy(datasets)
@@ -45,12 +43,12 @@ def main():
         datasets_sumw[dataset]["files"] = {k: "Runs" for k in datasets[dataset]["files"]}
     
     datasets_sumw = {k:v for k,v in datasets_sumw.items() if v["metadata"]["is_mc"]}
-    datasets_simu = {k:v for k,v in datasets_simu.items() if v["metadata"]["is_mc"]}
-    datasets_data = {k:v for k,v in datasets_data.items() if "Run20" in k}
+    #datasets_simu = {k:v for k,v in datasets_simu.items() if v["metadata"]["is_mc"]}
+    #datasets_data = {k:v for k,v in datasets_data.items() if "Run20" in k}
 
-    print(datasets_data.keys())
-    print(datasets_sumw.keys())
-    print(datasets_simu.keys())
+    #print(datasets_data.keys())
+    #print(datasets_sumw.keys())
+    #print(datasets_simu.keys())
 
     weight_syst_list = ["puWeight", "PDF", "MuonSF", "ElecronSF", "EWK", "nvtxWeight", "TriggerSFWeight", "btagEventWeight",
                         "QCDScale0w", "QCDScale1w", "QCDScale2w"]
@@ -82,42 +80,40 @@ def main():
     (sumw,) = dask.compute(sumw_compute)
      
     print("Processing MC Events ... ")
+    #for i, c in datasets_simu.items():
+    #    print(i, len(c['files']))
+  
+    # dataset_simu_runnable, _ = preprocess(
+    #     datasets_simu, 
+    #     align_clusters=False, 
+    #     step_size=100_000, 
+    #     files_per_batch=1,
+    #     skip_bad_files=True,
+    #     save_form=False,
+    # )
+
+    # event_simu_compute = apply_to_fileset(
+    #     MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
+    #     max_chunks(dataset_simu_runnable, options.max_chunks),
+    #     schemaclass=BaseSchema,
+    #     #uproot_options={"allow_read_errors_with_report": (OSError,IndexError)}
+    # )
+    # (histograms_simu,) = dask.compute(event_simu_compute)
+    # 
+    # print(histograms_simu)
+    # 
+    bh_output = {}
+    # for key, content in histograms_simu.items():
+    #     bh_output[key] = {
+    #         "hist": content,
+    #         "sumw": sumw[key],
+    #     }
+
+    
+    print("Processing Data Events ... ")
     for i, c in datasets_simu.items():
         print(i, len(c['files']))
-  
-    dataset_simu_runnable, _ = preprocess(
-        datasets_simu, 
-        align_clusters=False, 
-        step_size=100_000, 
-        files_per_batch=1,
-        skip_bad_files=True,
-        save_form=False,
-    )
-
-    event_simu_compute = apply_to_fileset(
-        MonoZ(weight_syst_list=weight_syst_list, shift_syst_list=shift_syst_list),
-        max_chunks(dataset_simu_runnable, options.max_chunks),
-        schemaclass=BaseSchema,
-        #uproot_options={"allow_read_errors_with_report": (OSError,IndexError)}
-    )
-    (histograms_simu,) = dask.compute(event_simu_compute)
-    
-    print(histograms_simu)
-    
-    bh_output = {}
-    for key, content in histograms_simu.items():
-        bh_output[key] = {
-            "hist": content,
-            "sumw": sumw[key],
-        }
-
-
-    print("Processing Data Events ... ")
-    for i, c in datasets_data.items():
-        print(i, len(c['files']))
-
         dataset_temp = {i: c}
-
         dataset_data_runnable, _ = preprocess(
             dataset_temp, 
             align_clusters=False, 
@@ -133,13 +129,16 @@ def main():
             schemaclass=BaseSchema,
         )
 
-        (histograms_data,) = dask.compute(event_data_compute)
-        for key, content in histograms_data.items():
-            bh_output[key] = {
-                "hist": content,
-                "sumw": -1.0
-            }
+        (out_hist,) = dask.compute(event_data_compute)
+        print(out_hist.keys())
 
+        sumw_value = -1.0 
+        if c['metadata']["is_mc"]:
+            sumw_value= sumw[i]
+        bh_output[i] = {
+            "hist": out_hist[i],
+            "sumw": sumw_value
+        }
 
     print(bh_output)
 
