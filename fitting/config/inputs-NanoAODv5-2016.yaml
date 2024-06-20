@@ -1,0 +1,107 @@
+VVV:
+  files:
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/WWZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/WZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/ZZZ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root
+  type: background
+  color: 895
+
+ZZ:
+  files:
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/ZZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/ZZTo4L_13TeV_powheg_pythia8_ext1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/ZZTo2L2Nu_13TeV_powheg_pythia8_ext1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo2e2mu_13TeV_MCFM701_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo2e2nu_13TeV_MCFM701_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo2e2tau_13TeV_MCFM701_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo2mu2nu_13TeV_MCFM701_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo2mu2tau_13TeV_MCFM701_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo4e_13TeV_MCFM701_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo4mu_13TeV_MCFM701_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/GluGluToContinToZZTo4tau_13TeV_MCFM701_pythia8.root
+  type:
+    background
+  color: 798
+WW:
+  files:
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/WWTo2L2Nu_13TeV-powheg.root
+  color: 842
+  type: background
+WZ:
+  files:
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/WZTo2L2Q_13TeV_amcatnloFXFX_madspin_pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/WZTo3LNu_TuneCUETP8M1_13TeV-powheg-pythia8.root
+  type:
+    background
+  kfactor: 1.23
+  color: 856
+
+DY:
+  files:
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DYJetsToLL_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DYJetsToLL_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DYJetsToLL_Pt-400To650_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DYJetsToLL_Pt-50To100_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DYJetsToLL_Pt-650ToInf_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.root
+  type:
+    background
+  kfactor: 1.0
+  color: 901
+
+TOP:
+  files:
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/ST_tW_antitop_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/ST_tW_top_5f_inclusiveDecays_13TeV-powheg-pythia8_TuneCUETP8M1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/TTWJetsToLNu_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/TTWJetsToQQ_TuneCUETP8M1_13TeV-amcatnloFXFX-madspin-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/TTZToLLNuNu_M-10_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/TTZToQQ_TuneCUETP8M1_13TeV-amcatnlo-pythia8.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DYJetsToTauTau_ForcedMuEleDecay_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8_ext1.root
+  type:
+    background
+  color: 124
+  kfactor: 2.0
+
+data:
+  files:
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleEG_Run2016B_ver2-Nano1June2019_ver2-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleEG_Run2016C-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleEG_Run2016D-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleEG_Run2016E-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleEG_Run2016F-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleEG_Run2016G-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleEG_Run2016H-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleMuon_Run2016B_ver2-Nano1June2019_ver2-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleMuon_Run2016C-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleMuon_Run2016D-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleMuon_Run2016E-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleMuon_Run2016F-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleMuon_Run2016G-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/DoubleMuon_Run2016H-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016B_ver2-Nano1June2019_ver2-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016C-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016D-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016E-Nano1June2019-v2.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016E-Nano1June2019-v3.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016F-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016G-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/MuonEG_Run2016H-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleElectron_Run2016B_ver2-Nano1June2019_ver2-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleElectron_Run2016C-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleElectron_Run2016D-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleElectron_Run2016E-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleElectron_Run2016F-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleElectron_Run2016G-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleElectron_Run2016H-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleMuon_Run2016B_ver2-Nano1June2019_ver2-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleMuon_Run2016C-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleMuon_Run2016D-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleMuon_Run2016E-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleMuon_Run2016F-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleMuon_Run2016G-Nano1June2019-v1.root
+    - /eos/user/c/cmsdas/long-exercises/MonoZ/CMSDAS_NTuples_WS/merged/SingleMuon_Run2016H-Nano1June2019-v1.root
+  type:
+    data
+  color: 1
+
