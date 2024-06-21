@@ -102,7 +102,7 @@ def main():
                 config.boosthist.items()
             )
         )
-        
+
         p = dctools.datagroup(
             histograms = histograms,
             ptype      = config.groups[name].type,

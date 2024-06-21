@@ -180,7 +180,10 @@ and the rate params here `rate_params <https://github.com/yhaddad/CMSDAS-MonoZ-T
 This will run datacards for every file here `Input <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/config/input_DAS_2016.yaml>`_.
 
 In order to run this code you will need to tell it the region of interest. This can be seen in an example command below:
+Here we can just run the datacard for the SR and examine the datacard to see if it makes sense. You can examine other Dark Matter models by modifying the input_DAS_2016.yaml. 
+The makecard-boost.py has the systmatics commented out. Feel free to play with these and add them back in. 
+
 
 .. code-block:: html
 
-    python makecard-boost.py --name monoZ --input ./config/input_DAS_2016.yaml --era 2016 --variable measMET --channel cat3L
+    python3 makecard-boost.py --name monoZ --input ./config/input_DAS_2016.yaml --era 2016 --variable met_pt --channel catSignal-0jet
