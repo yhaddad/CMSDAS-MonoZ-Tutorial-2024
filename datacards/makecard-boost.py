@@ -191,27 +191,27 @@ def main():
         card.add_log_normal(p.name, f"UEPS", 1.20)
 
         #Shape uncertainties
-        card.add_shape_nuisance(p.name, f"CMS_eff_m_{options.era}", p.get("MuonSF")  , symmetrise=False)
-        card.add_shape_nuisance(p.name, f"CMS_eff_e_{options.era}", p.get("ElectrronSF") , symmetrise=False)
-        card.add_shape_nuisance(p.name, f"CMS_JES_{options.era}"   , p.get(f"jesTotal")    , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"CMS_JER_{options.era}"   , p.get(f"jer")         , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"CMS_BTag_{options.era}"   , p.get(f"btagEventWeight")  , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"CMS_Trig_{options.era}"   , p.get(f"TriggerSFWeight")  , symmetrise=False)             
-        card.add_shape_nuisance(p.name, f"CMS_pfire_{options.era}"   , p.get(f"PrefireWeight")  , symmetrise=False) 
-        card.add_shape_nuisance(p.name, f"PDF_{options.era}"   , p.get(f"PDF")  , symmetrise=False)
-        card.add_shape_nuisance(p.name, f"CMS_Vx_{options.era}"   , p.get(f"nvtxWeight")  , symmetrise=False)
-        card.add_shape_nuisance(p.name, f"CMS_PU_{options.era}"   , p.get(f"puWeight")  , symmetrise=False)
+        #card.add_shape_nuisance(p.name, f"CMS_eff_m_{options.era}", p.get("MuonSF")  , symmetrise=False)
+        #card.add_shape_nuisance(p.name, f"CMS_eff_e_{options.era}", p.get("ElectrronSF") , symmetrise=False)
+        #card.add_shape_nuisance(p.name, f"CMS_JES_{options.era}"   , p.get(f"jesTotal")    , symmetrise=False) 
+        #card.add_shape_nuisance(p.name, f"CMS_JER_{options.era}"   , p.get(f"jer")         , symmetrise=False) 
+        #card.add_shape_nuisance(p.name, f"CMS_BTag_{options.era}"   , p.get(f"btagEventWeight")  , symmetrise=False) 
+        #card.add_shape_nuisance(p.name, f"CMS_Trig_{options.era}"   , p.get(f"TriggerSFWeight")  , symmetrise=False)             
+        #card.add_shape_nuisance(p.name, f"CMS_pfire_{options.era}"   , p.get(f"PrefireWeight")  , symmetrise=False) 
+        #card.add_shape_nuisance(p.name, f"PDF_{options.era}"   , p.get(f"PDF")  , symmetrise=False)
+        #card.add_shape_nuisance(p.name, f"CMS_Vx_{options.era}"   , p.get(f"nvtxWeight")  , symmetrise=False)
+        #card.add_shape_nuisance(p.name, f"CMS_PU_{options.era}"   , p.get(f"puWeight")  , symmetrise=False)
 
         #Shapes specific to certain backgrounds 
         if 'DY' not in p.name:
             card.add_qcd_scales(
                 name, "CMS_QCDScale{p.name}_{options.era}",
-                [p.get("QCDScale0w"), p.get("QCDScale1w"), p.get("QCDScale2w")]
+                [p.get("QCDScale0"), p.get("QCDScale1"), p.get("QCDScale2")]
             )
         if 'WZ' in p.name:
-            card.add_shape_nuisance(p.name, f"EWKWZ"   , p.get(f"EWK")  , symmetrise=True)
+            card.add_shape_nuisance(p.name, f"EWKWZ"   , p.get(f"vvewkcor")  , symmetrise=True)
         if 'ZZ' in p.name:
-            card.add_shape_nuisance(p.name, f"EWKZZ"   , p.get(f"EWK")  , symmetrise=True)
+            card.add_shape_nuisance(p.name, f"EWKZZ"   , p.get(f"vvewkcor")  , symmetrise=True)
        
 
         #Add rate params for the various processes
