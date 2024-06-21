@@ -7,7 +7,7 @@ import argparse
 import dctools
 import hist
 import matplotlib.pyplot as plt
-#from dctools import plot as plotter
+from dctools import plot as plotter
 from typing import Any, IO
 import numpy as np
 
@@ -67,7 +67,7 @@ def main():
     parser.add_argument("-c"  , "--channel" , nargs='+', type=str)
     parser.add_argument("-s"  , "--signal"  , nargs='+', type=str)
     parser.add_argument('-n'  , "--name"    , type=str , default='')
-    #parser.add_argument('-p'  , "--plot"    , action="store_true")
+    parser.add_argument('-p'  , "--plot"    , action="store_true")
     parser.add_argument('--rebin', type=int, default=1, help='rebin')
     parser.add_argument("--bins", 
             type=lambda s: [float(item) for item in s.split(',')], 
@@ -120,34 +120,34 @@ def main():
             signal = p.name
 
 
-    #if options.plot:
-    #    _plot_channel = plotter.add_process_axis(datasets)
-    #    pred = _plot_channel.project('process','systematic', options.variable)[:hist.loc('data'),:,:]
-    #    data = _plot_channel[{'systematic':'nominal'}].project('process',options.variable)[hist.loc('data'),:] 
+    if options.plot:
+        _plot_channel = plotter.add_process_axis(datasets)
+        pred = _plot_channel.project('process','systematic', options.variable)[:hist.loc('data'),:,:]
+        data = _plot_channel[{'systematic':'nominal'}].project('process',options.variable)[hist.loc('data'),:] 
 
-    #    plt.figure(figsize=(6,7))
-    #    ax, bx = plotter.mcplot(
-    #        pred[{'systematic':'nominal'}].stack('process'),
-    #        data=None if options.blind else data, 
-    #        syst=pred.stack('process'),
-    #    )
-    #    
-    #    try:
-    #        sig_ewk = _plot_channel[{'systematic':'nominal'}].project('process', variable)[hist.loc('VBSZZ2l2nu'),:]   
-    #        sig_qcd = _plot_channel[{'systematic':'nominal'}].project('process', variable)[hist.loc('ZZ2l2nu'),:]   
-    #        sig_ewk.plot(ax=ax, histtype='step', color='red')
-    #        sig_qcd.plot(ax=ax, histtype='step', color='purple')
-    #    except:
-    #        pass
-    #
-    #    ymax = np.max([line.get_ydata().max() for line in ax.lines if line.get_ydata().shape[0]>0])
-    #    ymin = np.min([line.get_ydata().min() for line in ax.lines if line.get_ydata().shape[0]>0])
-    #
-    #    ax.set_ylim(0.001, 100*ymax)
-    #    ax.set_title(f"channel {options.channel}: {options.era}")
+        plt.figure(figsize=(6,7))
+        ax, bx = plotter.mcplot(
+            pred[{'systematic':'nominal'}].stack('process'),
+            data=None if options.blind else data, 
+            syst=pred.stack('process'),
+        )
+        
+        try:
+            sig_ewk = _plot_channel[{'systematic':'nominal'}].project('process', variable)[hist.loc('VBSZZ2l2nu'),:]   
+            sig_qcd = _plot_channel[{'systematic':'nominal'}].project('process', variable)[hist.loc('ZZ2l2nu'),:]   
+            sig_ewk.plot(ax=ax, histtype='step', color='red')
+            sig_qcd.plot(ax=ax, histtype='step', color='purple')
+        except:
+            pass
+    
+        ymax = np.max([line.get_ydata().max() for line in ax.lines if line.get_ydata().shape[0]>0])
+        ymin = np.min([line.get_ydata().min() for line in ax.lines if line.get_ydata().shape[0]>0])
+    
+        ax.set_ylim(0.001, 100*ymax)
+        ax.set_title(f"channel {options.channel}: {options.era}")
 
-    #    ax.set_yscale('log')
-    #    plt.savefig(f'plot-{options.channel}-{options.variable}-{options.era}.pdf')
+        ax.set_yscale('log')
+        plt.savefig(f'plot-{options.channel}-{options.variable}-{options.era}.pdf')
 
 
     if options.checksyst:        

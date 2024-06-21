@@ -1,5 +1,5 @@
 boosthist:
-  - ./../processing/histograms.pkl.gz
+  - ./data/merged-histogram-cape-2018-withDD.pkl.gz
     
 xsections:
   !include ./config/xsections_2016.yaml
@@ -94,592 +94,592 @@ groups:
       data
     color:
       "#181926"
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-100_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-140_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-140_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-140_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-200_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-200_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-200_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Axial_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Axial_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Axial_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-100_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Pseudo_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-0_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-0_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-0_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-100_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-10_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-200_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-20_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-1_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-200_Mv-500_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-1000_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-350_Mv-750_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-40_Mv-100_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-10_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-300_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-350_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-400_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Scalar_Mx-50_Mv-50_gDM1_gQ1_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-0_Mv-20_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1000_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-100_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-10_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-150_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-10_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-1_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-300_Mv-750_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-40_Mv-100_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-490_Mv-1000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-10000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-500_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-200_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-300_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-50_Mv-50_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-75_Mv-500_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal
     color: '#98a100'
-  DarkMatter_MonoZToLL_NLO_Vector_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
+- DarkMatter_MonoZToLL_NLO_Vector_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph:
     processes:
     - DarkMatter_MonoZToLL_NLO_Vector_Mx-990_Mv-2000_gDM1_gQ0p25_TuneCUETP8M1_13TeV-madgraph
     type: signal

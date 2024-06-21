@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Results &#8212; Mono Z v1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/groundwork.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/tabs.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <link rel="shortcut icon" href="../_static/monoz.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Running Combine" href="Combine.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="Combine.html" title="Running Combine"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Mono Z v1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Results</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="results">
+<h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
+<p>This last section is about the outputs of combine and how to use them to make a limit plot. This plot will take into account not only the observed and expected limits but also the 1 and 2 sigma bands.</p>
+<section id="limits">
+<h2>Limits<a class="headerlink" href="#limits" title="Permalink to this headline">¶</a></h2>
+<p>We will need to run limits for all of the models we want to look at which in this case is the DM models. For Axial-vector and vector models we published the limits in a 2D plot showing the limits for both the mediator and dm particle mass. This kind of limit plot is complicated to make from the limits attained from combine. For the Scalar and Pseudoscalar models, we can show the limits in a slightly easier way. For these 2 models we will show the signal strengths direcetly as a function of the mediator mass. You will notice that the dm samples are created with several different mass points. What we will do is to find the limit for each of these mass points and then we will interpolate between the limits to get a smooth limit. This is described in the next section.</p>
+<p>For more information on how the limits are calulated you can see these <a class="reference external" href="https://indico.cern.ch/event/637941/contributions/2606105/attachments/1510179/2358420/limits_statistics_201708_sonneveld.pdf">slides</a>.</p>
+</section>
+<section id="plotting-limits">
+<h2>Plotting Limits<a class="headerlink" href="#plotting-limits" title="Permalink to this headline">¶</a></h2>
+<p>Once we have all the limits for the dark matter samples we can plot the limits as a function of the mediator mass. Lets do this for the scalar and pseudoscalar models. We can plot these limits with the code here: <a class="reference external" href="https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial/blob/master/limits-DM-CMSDAS.ipynb">notebook</a>.</p>
+<p>Here, we are plotting the mu value directly for each of the different mediator masses that we created samples for. We interpolate between points in order to get a full distribution. This is done for the expected limits (without data and using toys) and for the observed limits (which are the data). Do the expected and observed limits seem to be close to each other? What would it mean if the observed is higher? What about lower?</p>
+<p>Can you modify this code to do a similar limit for just the mediator mass of the vector and axial-vector models? There are several samples with a dm particle mass set to 1 GeV. Try with the vector and axial-vector models.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/monoz.png" alt="Logo"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Results</a><ul>
+<li><a class="reference internal" href="#limits">Limits</a></li>
+<li><a class="reference internal" href="#plotting-limits">Plotting Limits</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="Combine.html"
+                          title="previous chapter">Running Combine</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/exercise/Results.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="Combine.html" title="Running Combine"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Mono Z v1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Results</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2024, The Mono Z CMSDAS Team.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

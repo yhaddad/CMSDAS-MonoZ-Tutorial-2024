@@ -22,17 +22,21 @@ To set-up combine for this exercise, log into lxplus and setup a directory for t
 
     mkdir -p your/working/directory
     cd your/working/directory
-    cmsrel CMSSW_14_1_0_pre4
-    cd CMSSW_14_1_0_pre4/src
+    cmssw-el7
+    export SCRAM_ARCH=slc7_amd64_gcc900
+    cmsrel CMSSW_11_3_4
+    cd CMSSW_11_3_4/src/
     cmsenv
-    git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit
-    cd HiggsAnalysis/CombinedLimit
 
-    cd $CMSSW_BASE/src/HiggsAnalysis/CombinedLimit
+    git clone https://github.com/cms-analysis/HiggsAnalysis-CombinedLimit.git HiggsAnalysis/CombinedLimit
+    cd HiggsAnalysis/CombinedLimit/
     git fetch origin
-    git checkout v10.0.1
+    git checkout v9.2.1
+
     cd $CMSSW_BASE/src
-    scramv1 b clean; scramv1 b # always make a clean build
+    bash <(curl -s https://raw.githubusercontent.com/cms-analysis/CombineHarvester/main/CombineTools/scripts/sparse-checkout-ssh.sh)
+    scramv1 b clean
+    scramv1 b
 
 
 Impact Plots
@@ -44,12 +48,8 @@ Let's run some impact plots:
 
 .. code-block:: html
 
-      mkdir impact; cd impact
-      cp -r /eos/user/c/cmsdas/long-exercises/MonoZ/datacards/cards-DMSimp_MonoZLL_NLO_Axial_1000_MXd-1 .
-      text2workspace.py cards-DMSimp_MonoZLL_NLO_Axial_1000_MXd-1/combined.dat -o workspace_TEST.root
-      export PARAM="--rMin=-1 --rMax=4 --cminFallbackAlgo Minuit2,Migrad,0:0.05 --X-rtd MINIMIZER_analytic --X-rtd FAST_VERTICAL_MORPH"
-      combineTool.py -M Impacts -d workspace_TEST.root -m 125 -n TEST --robustFit 1 --X-rtd FITTER_DYN_STEP --doInitialFit --allPars $PARAM;
-      combineTool.py -M Impacts -d workspace_TEST.root -m 125 -n TEST --robustFit 1 --X-rtd FITTER_DYN_STEP --doFits --allPars $PARAM;
+      combineTool.py -M Impacts -d workspace_TEST.root -m 125 -n TEST --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-1 --rMax=4 --doInitialFit --allPars $PARAM;
+      combineTool.py -M Impacts -d workspace_TEST.root -m 125 -n TEST --robustFit 1 --X-rtd FITTER_DYN_STEP --rMin=-1 --rMax=4 --doFits --allPars $PARAM;
       combineTool.py -M Impacts -d workspace_TEST.root -m 125 -n TEST -o impactsTEST.json --allPars $PARAM;
       plotImpacts.py -i impactsTEST.json -o impactsTEST;
 
