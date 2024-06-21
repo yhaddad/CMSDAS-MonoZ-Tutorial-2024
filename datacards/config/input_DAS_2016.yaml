@@ -1,5 +1,5 @@
 boosthist:
-  - ./../processing/histograms.pkl.gz
+  - ./../processing/histograms-reformed.pkl.gz
     
 xsections:
   !include ./config/xsections_2016.yaml
