@@ -169,3 +169,21 @@ The last section handles the single bin normalization factors for the EMU (Top a
 
 Take some time to look through the datacards for the other channels (control regions). Do they make sense to you? Can you follow some of the systematics and see why they are applied to certain processes and not to others. What about the correlations? The next step would be to look at the combined.dat which combines all of the signal and control regions. These are much bigger but contain the same information. Does the combined datacard make sense? We will be using this as input to combine so make sure these are clear to you.
 
+Running your own datacards
+**************************
+
+The code to run the datacards can be see here `Datacard <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/makecard-boost.py>`_.
+
+In here the systematic variations are described here `systematic_variations <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/makecard-boost.py#L187-L214>`_.
+and the rate params here `rate_params <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/makecard-boost.py#L217-L231>`_.
+
+This will run datacards for every file here `Input <https://github.com/yhaddad/CMSDAS-MonoZ-Tutorial-2024/blob/main/datacards/config/input_DAS_2016.yaml>`_.
+
+In order to run this code you will need to tell it the region of interest. This can be seen in an example command below:
+Here we can just run the datacard for the SR and examine the datacard to see if it makes sense. You can examine other Dark Matter models by modifying the input_DAS_2016.yaml. 
+The makecard-boost.py has the systmatics commented out. Feel free to play with these and add them back in. 
+
+
+.. code-block:: html
+
+    python3 makecard-boost.py --name monoZ --input ./config/input_DAS_2016.yaml --era 2016 --variable met_pt --channel catSignal-0jet
